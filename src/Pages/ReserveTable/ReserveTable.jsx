@@ -121,7 +121,7 @@ export default function ReserverTable() {
                     }
                   >
                     <Link
-                      to="/menu"
+                      to="/wok-of-fame/menu"
                       state={true}
                       style={{
                         textDecoration: "none",
@@ -159,7 +159,11 @@ export default function ReserverTable() {
                     }
                   >
                     <Link
-                      to={cart.length > 0 ? "/plate" : "/details"}
+                      to={
+                        cart.length > 0
+                          ? "/wok-of-fame/plate"
+                          : "/wok-of-fame/details"
+                      }
                       state={{ reserve: true }}
                       style={{
                         textDecoration: "none",

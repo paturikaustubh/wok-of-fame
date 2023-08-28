@@ -23,7 +23,7 @@ function Navbar() {
       <nav className={`navbar headding ${navTransition ? "scroll" : ""}`}>
         <div className="container">
           <Link
-            to="/"
+            to="/wok-of-fame/"
             className={`navbar-brand ${
               navTransition ? "text-white" : "text-danger"
             } font-weight-bold`}
@@ -54,7 +54,7 @@ function Navbar() {
               Menu
             </Link>
             <Link
-              to="/reserve"
+              to="/wok-of-fame/reserve"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger"
               } btn-lg`}
@@ -62,7 +62,7 @@ function Navbar() {
               Reserve a Table
             </Link>
             <Link
-              to="/plate"
+              to="/wok-of-fame/plate"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger"
               } btn-lg`}

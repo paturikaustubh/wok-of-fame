@@ -42,7 +42,10 @@ export default function Plate() {
                 >
                   Woah... Such empty...🍽️
                 </p>
-                <Link to="/menu" className="btn btn-lg btn-outline-danger">
+                <Link
+                  to="/wok-of-fame/menu"
+                  className="btn btn-lg btn-outline-danger"
+                >
                   Continue Cooking
                 </Link>
               </div>
@@ -112,7 +115,7 @@ export default function Plate() {
                     return (
                       <div className="continue">
                         <Link
-                          to="/details"
+                          to="/wok-of-fame/details"
                           state={{ reserve: reserveStatus }}
                           className="continue-button"
                           onClick={() =>

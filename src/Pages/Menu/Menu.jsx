@@ -50,7 +50,7 @@ export default function Menu() {
                   </p>
                   {reserve_state && (
                     <Link
-                      to="/reserve"
+                      to="/wok-of-fame/reserve"
                       className="btn btn-danger btn-lg"
                       onClick={() => updateCart({})}
                     >
@@ -140,7 +140,11 @@ export default function Menu() {
               </button>
               {reserve_state && cart.length > 0 && (
                 <Link
-                  to={cart.length > 0 ? "/plate" : "/details"}
+                  to={
+                    cart.length > 0
+                      ? "/wok-of-fame/plate"
+                      : "/wok-of-fame/details"
+                  }
                   className="rounded-full rounded btn-lg btn btn-success"
                   style={{
                     outline: "none",

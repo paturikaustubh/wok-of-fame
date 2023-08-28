@@ -10,13 +10,13 @@ export default function Sidebar({ open, setOpen }) {
         </div>
         <hr />
         <div className="pages">
-          <Link to="/menu" onClick={() => setOpen(false)}>
+          <Link to="/wok-of-fame/menu" onClick={() => setOpen(false)}>
             Menu 📃
           </Link>
           <Link to="reserve" onClick={() => setOpen(false)}>
             Reserve a Table 🪑
           </Link>
-          <Link to="/plate" onClick={() => setOpen(false)}>
+          <Link to="/wok-of-fame/plate" onClick={() => setOpen(false)}>
             Plate 🍽️
           </Link>
         </div>

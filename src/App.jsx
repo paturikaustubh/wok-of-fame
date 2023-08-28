@@ -33,11 +33,19 @@ export default function App() {
               <Routes>
                 <Route path="/wok-of-fame/" element={<LazyManager />}>
                   <Route exact path="/wok-of-fame/" element={<Home />} />
-                  <Route exact path="/menu" element={<Menu />} />
-                  <Route path="/plate" element={<Plate />} />
-                  <Route exact path="/test" element={<Test />} />
-                  <Route exact path="/details" element={<Details />} />
-                  <Route exact path="/reserve" element={<ReserveTable />} />
+                  <Route exact path="/wok-of-fame/menu" element={<Menu />} />
+                  <Route path="/wok-of-fame/plate" element={<Plate />} />
+                  <Route exact path="/wok-of-fame/test" element={<Test />} />
+                  <Route
+                    exact
+                    path="/wok-of-fame/details"
+                    element={<Details />}
+                  />
+                  <Route
+                    exact
+                    path="/wok-of-fame/reserve"
+                    element={<ReserveTable />}
+                  />
                 </Route>
                 <Route
                   path="*"
@@ -63,7 +71,10 @@ export default function App() {
                       >
                         Looks like you've lost 👀
                       </span>
-                      <Link to="/" className="btn btn-lg btn-outline-danger">
+                      <Link
+                        to="/wok-of-fame/"
+                        className="btn btn-lg btn-outline-danger"
+                      >
                         Take me home
                       </Link>
                     </div>

@@ -321,11 +321,11 @@ function MenuItems({ element, updateCart, cart, filterArr }) {
 
   return (
     <div className="border border-top-0 border-right-0 border-left-0 py-4 px-4 d-flex flex-column flex-lg-row">
-      <div
+      {/* <div
         className="blur-div"
         style={{
-          width: 350,
-          height: 200,
+          width: "75%",
+          aspectRatio: "16/9",
           backgroundImage: itemDetails.img
             ? `url(Images/Menu/${itemDetails.img}-small.jpg)`
             : "",
@@ -335,23 +335,24 @@ function MenuItems({ element, updateCart, cart, filterArr }) {
           borderBottomLeftRadius: "8px",
           borderTopLeftRadius: "8px",
         }}
-      >
-        <img
-          loading="lazy"
-          src={itemDetails.img ? `Images/Menu/${itemDetails.img}.jpg` : ""}
-          alt={itemDetails.name}
-          style={{
-            width: "inherit",
-            height: "inherit",
-            ...(showImg ? { opacity: "1" } : { opacity: "0" }),
-            transitionDuration: "200ms",
-            objectFit: "cover",
-            objectPosition: "center",
-            borderBottomLeftRadius: "8px",
-            borderTopLeftRadius: "8px",
-          }}
-        />
-      </div>
+      > */}
+      <img
+        loading="lazy"
+        src={itemDetails.img ? `Images/Menu/${itemDetails.img}.jpg` : ""}
+        alt={itemDetails.name}
+        style={{
+          width: "23rem",
+          aspectRatio: "16/9",
+          height: "inherit",
+          ...(showImg ? { opacity: "1" } : { opacity: "0" }),
+          transitionDuration: "200ms",
+          objectFit: "cover",
+          objectPosition: "center",
+          borderBottomLeftRadius: "8px",
+          borderTopLeftRadius: "8px",
+        }}
+      />
+      {/* </div> */}
       <div
         className="d-flex flex-lg-row flex-column  align-items-start w-100 px-4 py-2"
         style={{ justifyContent: "space-between" }}

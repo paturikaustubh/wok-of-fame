@@ -84,7 +84,7 @@ export default function Plate() {
                     </div>
                     {setRound && (
                       <div>
-                        <div className="round-off-text">Margin</div>
+                        <div className="round-off-text">Tip</div>
                         <div className="round-off-cost">
                           <span>₹{roundoff}</span>
                           <button onClick={() => setSetRound(false)}>❌</button>
@@ -100,12 +100,12 @@ export default function Plate() {
                   </div>
                   {grandTotal % 10 !== 0 && !setRound && (
                     <div className="round-off">
-                      <div>Round off the total to next multiple of 10</div>
+                      <div>Tip the delivery guy with</div>
                       <button
                         onClick={() => {
                           setSetRound(true);
                         }}
-                      >{`Add ₹${10 - (grandTotal % 10)}`}</button>
+                      >{`₹${10 - (grandTotal % 10)}`}</button>
                     </div>
                   )}
                 </div>

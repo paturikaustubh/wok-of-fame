@@ -341,15 +341,11 @@ function MenuItems({ element, updateCart, cart, filterArr }) {
         src={itemDetails.img ? `Images/Menu/${itemDetails.img}.jpg` : ""}
         alt={itemDetails.name}
         style={{
-          width: "23rem",
+          maxWidth: "20rem",
           aspectRatio: "16/9",
-          height: "inherit",
-          ...(showImg ? { opacity: "1" } : { opacity: "0" }),
           transitionDuration: "200ms",
           objectFit: "cover",
           objectPosition: "center",
-          borderBottomLeftRadius: "8px",
-          borderTopLeftRadius: "8px",
         }}
       />
       {/* </div> */}

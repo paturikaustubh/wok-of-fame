@@ -46,7 +46,7 @@ function Navbar() {
           </button>
           <div className="d-sm-none d-none d-md-flex">
             <Link
-              to="menu"
+              to="/wok-of-fame/menu"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger"
               } btn-lg ml-auto`}

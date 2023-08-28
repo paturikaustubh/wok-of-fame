@@ -76,7 +76,23 @@ export default function Plate() {
                     </div>
                     <div>
                       <div className="gst-text">GST</div>
-                      <div className="gst-cost">₹{gst}</div>
+                      <div className="gst-cost">
+                        <span>₹{gst}</span>
+                        <span
+                          style={{ fontSize: "small", color: "var(--red)" }}
+                        >
+                          {Math.floor(bill * (18 / 100)) !==
+                            bill * (18 / 100) && (
+                            <div>
+                              -
+                              {(
+                                bill * (18 / 100) -
+                                Math.floor(bill * (18 / 100))
+                              ).toFixed(2)}
+                            </div>
+                          )}
+                        </span>
+                      </div>
                     </div>
                     <div>
                       <div className="delivery-text">Delivery Charges</div>

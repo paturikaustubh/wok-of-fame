@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Sidebar({ open, setOpen }) {
   return (
     <div className={`sidebar ${open ? "open" : ""}`}>
-      <div className={`sidebar-pannel ${open ? "open" : ""}`}>
+      <div className={`sidebar-pannel container ${open ? "open" : ""}`}>
         <div>
           <span>Navigations</span>
           <button onClick={() => setOpen(false)}>❌</button>

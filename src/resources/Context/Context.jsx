@@ -67,7 +67,7 @@ export class Data extends Component {
     loading: false,
     specials: [
       {
-        name: "Veg Chow Mein",
+        name: "Veg Chowmein",
         img: "Chowmein",
         veg: true,
         category: "main-course",
@@ -458,7 +458,7 @@ export class Data extends Component {
             serves: 2,
           },
           {
-            name: "Veg Chow Mein",
+            name: "Veg Chowmein",
             img: "Chowmein",
             veg: true,
             category: "main-course",
@@ -565,7 +565,7 @@ export class Data extends Component {
         title: "Desserts🍨",
         items: [
           {
-            name: "Vanilla Ice-Cream",
+            name: "Vanilla Ice Cream",
             img: "VanillaIceCream",
             veg: true,
             category: "dessert",
@@ -575,7 +575,7 @@ export class Data extends Component {
             serves: 1,
           },
           {
-            name: "Chocolate Ice-Cream",
+            name: "Chocolate Ice Cream",
             img: "ChocolateIceCream",
             veg: true,
             category: "dessert",
@@ -585,7 +585,7 @@ export class Data extends Component {
             serves: 1,
           },
           {
-            name: "Butterscotch Ice-Cream",
+            name: "Butterscotch Ice Cream",
             img: "ButterscotchIceCream",
             veg: true,
             category: "dessert",
@@ -595,7 +595,7 @@ export class Data extends Component {
             serves: 1,
           },
           {
-            name: "Blueberry Ice-Cream",
+            name: "Blueberry Ice Cream",
             veg: true,
             img: "BlueberryIceCream",
             category: "dessert",
@@ -605,7 +605,7 @@ export class Data extends Component {
             serves: 1,
           },
           {
-            name: "Strawberry Ice-Cream",
+            name: "Strawberry Ice Cream",
             img: "StrawberryIceCream",
             veg: true,
             category: "dessert",

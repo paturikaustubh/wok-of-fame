@@ -487,7 +487,7 @@ function SectionSection({ showSection, setShowSections }) {
             const element = document.getElementById(`${id}`);
             return (
               <button
-                className="selection-button"
+                className="section-button"
                 onClick={() => {
                   setShowSections(false);
                   element.scrollIntoView({ behavior: "smooth" });

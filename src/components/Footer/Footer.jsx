@@ -70,7 +70,7 @@ function Footer() {
         </div>
         <div className="row">
           <p className="col-12 text-secondary cpyright">
-            Copyright ©Wok of Fame
+            Copyright ©Kaustubh Paturi
           </p>
         </div>
       </div>

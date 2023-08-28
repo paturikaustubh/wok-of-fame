@@ -94,7 +94,7 @@ function SpecialItems({ item, updateCart, cart }) {
           src={`Images/Menu/${itemDetails.img}.jpg`}
           alt={itemDetails.title}
           className="card-img-top"
-          height="350"
+          style={{ width: "100%", aspectRatio: "16/9" }}
         />
         <div className="card-body">
           <div

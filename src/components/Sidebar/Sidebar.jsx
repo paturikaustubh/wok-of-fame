@@ -13,7 +13,7 @@ export default function Sidebar({ open, setOpen }) {
           <Link to="/wok-of-fame/menu" onClick={() => setOpen(false)}>
             Menu 📃
           </Link>
-          <Link to="reserve" onClick={() => setOpen(false)}>
+          <Link to="/wok-of-fame/reserve" onClick={() => setOpen(false)}>
             Reserve a Table 🪑
           </Link>
           <Link to="/wok-of-fame/plate" onClick={() => setOpen(false)}>

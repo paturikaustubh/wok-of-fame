@@ -31,8 +31,8 @@ export default function App() {
             <Router>
               <Navbar />
               <Routes>
-                <Route path="/" element={<LazyManager />}>
-                  <Route exact path="/" element={<Home />} />
+                <Route path="/wok-of-fame/" element={<LazyManager />}>
+                  <Route exact path="/wok-of-fame/" element={<Home />} />
                   <Route exact path="/menu" element={<Menu />} />
                   <Route path="/plate" element={<Plate />} />
                   <Route exact path="/test" element={<Test />} />

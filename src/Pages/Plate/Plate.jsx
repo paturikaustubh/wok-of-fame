@@ -14,7 +14,7 @@ export default function Plate() {
           .map(({ qnty }) => qnty)
           .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         let bill = 0;
-        let gst = totalCartQnty * 3;
+        let gst = totalCartQnty * (18 / 100);
         let delivery = 50;
         cart.map(({ qnty, cost }) => {
           bill += qnty * cost;

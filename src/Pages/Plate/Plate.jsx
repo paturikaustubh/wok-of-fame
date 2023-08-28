@@ -116,7 +116,7 @@ export default function Plate() {
                   </div>
                   {grandTotal % 10 !== 0 && !setRound && (
                     <div className="round-off">
-                      <div>Tip the delivery guy with</div>
+                      <div>Tip our delivery guy with</div>
                       <button
                         onClick={() => {
                           setSetRound(true);

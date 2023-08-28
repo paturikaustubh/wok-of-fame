@@ -14,11 +14,11 @@ export default function Plate() {
           .map(({ qnty }) => qnty)
           .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         let bill = 0;
-        let gst = totalCartQnty * (18 / 100);
         let delivery = 50;
         cart.map(({ qnty, cost }) => {
           bill += qnty * cost;
         });
+        let gst = Math.floor(bill * (18 / 100));
         let grandTotal = gst + delivery + bill;
         const roundoff = 10 - (grandTotal % 10);
         return (
@@ -105,7 +105,7 @@ export default function Plate() {
                         onClick={() => {
                           setSetRound(true);
                         }}
-                      >{`₹${10 - (grandTotal % 10)}`}</button>
+                      >{`₹${Math.round(10 - (grandTotal % 10))}`}</button>
                     </div>
                   )}
                 </div>

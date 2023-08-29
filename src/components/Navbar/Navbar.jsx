@@ -64,7 +64,7 @@ function Navbar() {
             <Link
               to="/wok-of-fame/plate"
               className={`nav-item nav-link btn btn-link ${
-                navTransition ? "text-white" : "text-danger"
+                navTransition ? "text-white" : "text-danger "
               } btn-lg`}
             >
               Plate

@@ -22,7 +22,7 @@ function Gallery() {
 
   return (
     <div className="container text-center py-5">
-      <p className="display-2">
+      <p className="display-3">
         <span className="font-weight-light">Image</span>{" "}
         <span className="text-danger font-weight-normal">Gallery🖼️</span>
       </p>

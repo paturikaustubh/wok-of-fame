@@ -420,6 +420,16 @@ img {
   font-weight: 500;
 }
 
+@media (max-width: 768px) {
+  .plate-count-div {
+    font-size: 1.5em;
+  }
+
+  .plate-count {
+    font-size: 1.5em;
+  }
+}
+
 .cart-items-list {
   background-color: white;
   padding: 1rem;

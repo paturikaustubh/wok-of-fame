@@ -20,6 +20,8 @@ export default function Menu() {
   const [showSections, setShowSections] = useState(false);
   const [initialLoad, setInitialLoad] = useState(false);
 
+  useEffect(() => window.scrollTo({ top: 0 }), [false]);
+
   const filterButtons = ["Veg🥬", "Non-Veg🥩"];
 
   // const handleFilterClick =

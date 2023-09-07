@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { Consumer } from "../../resources/Context/Context";
 import { Link } from "react-router-dom";
 
 export default function ReserverTable() {
+  useEffect(() => window.scrollTo({ top: 0 }), [false]);
+
   return (
     <div className="container bg-light border wrapper">
       <div className="reserve-title">Don't wait for others to get free!</div>

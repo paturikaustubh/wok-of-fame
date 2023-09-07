@@ -7,6 +7,9 @@ export default function Plate() {
 
   const location = useLocation().state;
   const reserveStatus = location ?? false;
+
+  useEffect(() => window.scrollTo({ top: 0 }), [false]);
+
   return (
     <Consumer>
       {({ cart, updateCart }) => {

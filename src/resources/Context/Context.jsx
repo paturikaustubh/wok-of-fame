@@ -257,7 +257,8 @@ export class Data extends Component {
             item: "manchurian",
             cost: 120,
             rating: 4.0,
-            details: "This is a very good starter for starting with a starter.",
+            details:
+              "A delectable dish that features vegetable dumplings soaked in a flavorful Manchurian sauce, creating a harmonious blend of savory and tangy flavors, making it a favorite among Chinese cuisine enthusiasts.",
             serves: 4,
           },
           {

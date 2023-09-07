@@ -4,38 +4,35 @@ const Context = createContext();
 
 export class Data extends Component {
   updateCart = (newItem) => {
-    if (newItem.qnty ?? false) {
-      if (newItem.qnty === 0) {
-        let indx = this.state.cart.findIndex(
+    console.log(newItem);
+    if (newItem.qnty === 0) {
+      let indx = this.state.cart.findIndex(
+        (element) => element.name === newItem.name
+      );
+      this.state.cart.splice(indx, 1);
+      this.setState({
+        cart: [...this.state.cart],
+      });
+    } else {
+      if (
+        this.state.cart.filter(
+          (element) => element.name === newItem.name && element.name !== ""
+        ).length > 0
+      ) {
+        const indx = this.state.cart.findIndex(
           (element) => element.name === newItem.name
         );
-        this.state.cart.splice(indx, 1);
+        this.setState(() => {
+          this.state.cart[indx].qnty = newItem.qnty;
+        });
         this.setState({
           cart: [...this.state.cart],
         });
       } else {
-        if (
-          this.state.cart.filter(
-            (element) => element.name === newItem.name && element.name !== ""
-          ).length > 0
-        ) {
-          const indx = this.state.cart.findIndex(
-            (element) => element.name === newItem.name
-          );
-          this.setState(() => {
-            this.state.cart[indx].qnty = newItem.qnty;
-          });
-          this.setState({
-            cart: [...this.state.cart],
-          });
-        } else {
-          this.setState({
-            cart: [newItem, ...this.state.cart],
-          });
-        }
+        this.setState({
+          cart: [newItem, ...this.state.cart],
+        });
       }
-    } else {
-      this.setState({ cart: [] });
     }
   };
 
@@ -48,12 +45,10 @@ export class Data extends Component {
   };
 
   setTableDetails = (newDetails) => {
-    console.log(newDetails);
     this.setState({ tableDetails: newDetails });
   };
 
   setLoading = (loadingState) => {
-    console.log(loadingState);
     this.setState({ loading: loadingState });
   };
 
@@ -701,3 +696,4 @@ export class Data extends Component {
 }
 
 export let Consumer = Context.Consumer;
+export let ConsumerEffect = Context;

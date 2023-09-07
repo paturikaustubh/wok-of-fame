@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Consumer } from "../../resources/Context/Context";
-import Menu from "../Menu/Menu";
 import { Link } from "react-router-dom";
 
 export default function ReserverTable() {
@@ -112,7 +110,7 @@ export default function ReserverTable() {
                   </div>
                   <button
                     className="continue-button"
-                    style={{ marginTop: "1em", padding: 0, marginLeft: 0 }}
+                    style={{ marginTop: "1em", padding: 10, marginLeft: 0 }}
                     disabled={
                       tableDetails.table === "" ||
                       tableDetails.count <= 0 ||
@@ -121,6 +119,7 @@ export default function ReserverTable() {
                     }
                   >
                     <Link
+                      onClick={() => window.scrollTo({ top: 0 })}
                       to="/wok-of-fame/menu"
                       state={true}
                       style={{
@@ -129,55 +128,51 @@ export default function ReserverTable() {
                         height: "100%",
                         width: "100%",
                         display: "inline-block",
-                        paddingBlock: "0.5em",
-                        paddingInline: "1.5em",
                       }}
                     >
                       Open menu
                     </Link>
                   </button>
-                </div>
-                <div
-                  style={{
-                    marginTop: "2rem",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "2rem",
-                  }}
-                >
-                  <button
-                    className="save-data-button"
+                  <div
                     style={{
-                      padding: 0,
-                      marginLeft: 0,
+                      display: "flex",
+                      alignItems: "center",
+                      marginTop: "0.8em",
                     }}
-                    disabled={
-                      tableDetails.table === "" ||
-                      tableDetails.count <= 0 ||
-                      (tableDetails.count > 15 && tableDetails.count != 69) ||
-                      tableDetails.date === ""
-                    }
                   >
-                    <Link
-                      to={
-                        cart.length > 0
-                          ? "/wok-of-fame/plate"
-                          : "/wok-of-fame/details"
-                      }
-                      state={{ reserve: true }}
+                    <button
+                      className="save-data-button"
                       style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        height: "100%",
-                        width: "100%",
-                        paddingBlock: "0.5rem",
-                        paddingInline: "1.5rem",
-                        display: "inline-block",
+                        padding: 10,
+                        marginLeft: 0,
                       }}
+                      disabled={
+                        tableDetails.table === "" ||
+                        tableDetails.count <= 0 ||
+                        (tableDetails.count > 15 && tableDetails.count != 69) ||
+                        tableDetails.date === ""
+                      }
                     >
-                      Continue Reservation
-                    </Link>
-                  </button>
+                      <Link
+                        onClick={() => window.scrollTo({ top: 0 })}
+                        to={
+                          cart.length > 0
+                            ? "/wok-of-fame/plate"
+                            : "/wok-of-fame/details"
+                        }
+                        state={{ reserve: true }}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          height: "100%",
+                          width: "100%",
+                          display: "inline-block",
+                        }}
+                      >
+                        Continue Reservation
+                      </Link>
+                    </button>
+                  </div>
                 </div>
                 {cart.length > 0 && (
                   <div

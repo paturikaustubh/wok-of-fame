@@ -43,6 +43,7 @@ export default function Plate() {
                   Woah... Such empty...🍽️
                 </p>
                 <Link
+                  onClick={() => window.scrollTo({ top: 0 })}
                   to="/wok-of-fame/menu"
                   className="btn btn-lg btn-outline-danger"
                 >
@@ -111,8 +112,8 @@ export default function Plate() {
                   <hr className="w-100" />
 
                   <div className="cart-total">
-                    <h1 className="text-info">Grand Total</h1>
-                    <h1>₹{setRound ? grandTotal + roundoff : grandTotal}</h1>
+                    <div className="text-info">Grand Total</div>
+                    <div>₹{setRound ? grandTotal + roundoff : grandTotal}</div>
                   </div>
                   {grandTotal % 10 !== 0 && !setRound && (
                     <div className="round-off">
@@ -134,11 +135,12 @@ export default function Plate() {
                           to="/wok-of-fame/details"
                           state={{ reserve: reserveStatus }}
                           className="continue-button"
-                          onClick={() =>
+                          onClick={() => {
+                            window.scrollTo({ top: 0 });
                             setTotalPayment(
                               setRound ? grandTotal + roundoff : grandTotal
-                            )
-                          }
+                            );
+                          }}
                         >
                           Continue
                         </Link>
@@ -158,12 +160,8 @@ export default function Plate() {
 function CartItem({ item, updateCart }) {
   const { category, cost, details, img, name, qnty, rating, veg } = item;
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(qnty);
   const [initialLoad, setInitialLoad] = useState(true);
-
-  useEffect(() => {
-    setCount(qnty);
-  }, [false]);
 
   useEffect(() => {
     if (!initialLoad)

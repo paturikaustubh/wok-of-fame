@@ -72,6 +72,7 @@ export default function App() {
                         Looks like you've lost 👀
                       </span>
                       <Link
+                        onClick={() => window.scrollTo({ top: 0 })}
                         to="/wok-of-fame/"
                         className="btn btn-lg btn-outline-danger"
                       >

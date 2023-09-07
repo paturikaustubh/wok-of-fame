@@ -23,6 +23,7 @@ function Navbar() {
       <nav className={`navbar headding ${navTransition ? "scroll" : ""}`}>
         <div className="container">
           <Link
+            onClick={() => window.scrollTo({ top: 0 })}
             to="/wok-of-fame/"
             className={`navbar-brand ${
               navTransition ? "text-white" : "text-danger"
@@ -46,6 +47,7 @@ function Navbar() {
           </button>
           <div className="d-sm-none d-none d-md-flex">
             <Link
+              onClick={() => window.scrollTo({ top: 0 })}
               to="/wok-of-fame/menu"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger"
@@ -54,6 +56,7 @@ function Navbar() {
               Menu
             </Link>
             <Link
+              onClick={() => window.scrollTo({ top: 0 })}
               to="/wok-of-fame/reserve"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger"
@@ -62,6 +65,7 @@ function Navbar() {
               Reserve a Table
             </Link>
             <Link
+              onClick={() => window.scrollTo({ top: 0 })}
               to="/wok-of-fame/plate"
               className={`nav-item nav-link btn btn-link ${
                 navTransition ? "text-white" : "text-danger "

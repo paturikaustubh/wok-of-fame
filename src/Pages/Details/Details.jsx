@@ -136,13 +136,6 @@ export default function Address() {
                               ...prevVal,
                               phNo: target.value,
                             }));
-                            console.log(
-                              target.value.length > 10 ||
-                                target.value.includes("+") ||
-                                target.value.includes("-") ||
-                                target.value.includes(".") ||
-                                target.value.includes("e")
-                            );
                             const element = document.getElementById(target.id);
                             if (
                               target.value.length > 10 ||

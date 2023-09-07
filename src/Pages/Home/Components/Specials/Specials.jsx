@@ -17,7 +17,6 @@ function Specials() {
             return (
               <>
                 {specials.map((item, indx) => {
-                  console.log(item);
                   return (
                     <SpecialItems
                       item={item}
@@ -34,7 +33,11 @@ function Specials() {
 
         <div className="col-12 text-right">
           <h2>
-            <Link to="menu" className="btn btn-danger btn-lg mt-4">
+            <Link
+              onClick={() => window.scrollTo({ top: 0 })}
+              to="menu"
+              className="btn btn-danger btn-lg mt-4"
+            >
               View Full Menu
             </Link>
           </h2>
@@ -60,7 +63,6 @@ function SpecialItems({ item, updateCart, cart }) {
   });
 
   useEffect(() => {
-    console.log("count effect");
     if (!initialLoad) {
       updateCart({
         details: itemDetails.details,
@@ -110,7 +112,9 @@ function SpecialItems({ item, updateCart, cart }) {
             />
             <h2 className="card-title m-0">{itemDetails.name} </h2>
           </div>
-          <p className="text-justify text-secondary">{itemDetails.details}</p>
+          <p className="text-justify text-secondary mt-2">
+            {itemDetails.details}
+          </p>
         </div>
 
         <div className="card-footer text-right">

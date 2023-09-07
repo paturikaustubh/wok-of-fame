@@ -188,6 +188,8 @@ export class Data extends Component {
             cost: 70,
             rating: 3.5,
             serves: 1,
+            details:
+              "Simmered to perfection with tender chicken pieces and an aromatic blend of herbs and vegetables, offering warmth and comfort in every spoonful.",
           },
           {
             name: "Chicken Manchow",
@@ -233,6 +235,8 @@ export class Data extends Component {
             cost: 160,
             rating: 4.0,
             serves: 4,
+            details:
+              "A popular vegetarian delight featuring bite-sized cubes of paneer marinated in a spicy and tangy blend of Indian spices, fried to crispy perfection, and served as a mouthwatering appetizer.",
           },
           {
             name: "Chilli Paneer",
@@ -243,6 +247,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.5,
             serves: 4,
+            details:
+              "A delightful Indo-Chinese creation, showcasing succulent paneer cubes stir-fried with colorful bell peppers, onions, and a spicy, flavorful sauce, delivering a perfect balance of heat and tanginess.",
           },
           {
             name: "Veg Manchurian",
@@ -264,6 +270,8 @@ export class Data extends Component {
             cost: 150,
             rating: 3.0,
             serves: 4,
+            details:
+              "A delicious fusion of crispy vegetable balls bathed in a rich, savory gravy with an enticing blend of aromatic spices, creating a harmonious mix of flavors and textures.",
           },
           {
             name: "Garlic Paneer",
@@ -274,6 +282,8 @@ export class Data extends Component {
             cost: 140,
             rating: 3.0,
             serves: 4,
+            details:
+              "A savory vegetarian delight featuring tender paneer cubes tossed in a fragrant garlic-infused sauce, resulting in a delightful blend of creamy and garlicky goodness.",
           },
           {
             name: "Chicken 65",
@@ -284,6 +294,8 @@ export class Data extends Component {
             cost: 160,
             rating: 4,
             serves: 4,
+            details:
+              "A spicy and tangy South Indian delicacy, featuring bite-sized, marinated chicken pieces, deep-fried to golden perfection, and seasoned with a symphony of aromatic spices, offering an explosion of flavors in every bite.",
           },
           {
             name: "Chilli Chicken",
@@ -294,6 +306,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.5,
             serves: 4,
+            details:
+              "An Indo-Chinese favorite, showcasing succulent chicken pieces tossed in a fiery chili sauce with vibrant bell peppers and onions, delivering a spicy and savory experience that's hard to resist.",
           },
           {
             name: "Chicken Manchurian",
@@ -304,6 +318,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.0,
             serves: 4,
+            details:
+              "A tantalizing Indo-Chinese dish featuring tender chicken pieces coated in a flavorful batter, fried to a crispy texture, and then simmered in a delectable Manchurian sauce, resulting in a delightful blend of crunch and savory goodness.",
           },
           {
             name: "Chicken Garlic",
@@ -314,6 +330,8 @@ export class Data extends Component {
             cost: 140,
             rating: 3.5,
             serves: 4,
+            details:
+              "A mouthwatering dish where succulent chicken pieces are cooked to perfection in a fragrant garlic-infused sauce, creating a delightful symphony of tender meat and rich garlic flavor.",
           },
           {
             name: "Ma Po Tofu",
@@ -351,6 +369,8 @@ export class Data extends Component {
             cost: 90,
             rating: 3.0,
             serves: 2,
+            details:
+              "A classic Asian dish showcasing fluffy rice stir-fried with a colorful medley of fresh vegetables and aromatic seasonings, delivering a satisfying and flavorful combination that's both hearty and delicious.",
           },
           {
             name: "Schezwan Fried Rice",
@@ -361,6 +381,8 @@ export class Data extends Component {
             cost: 100,
             rating: 3.5,
             serves: 2,
+            details:
+              "An exciting fusion of Chinese and Indian cuisines, where steamed rice is wok-fried with vibrant vegetables and bold Schezwan sauce, resulting in a fiery and flavorful culinary experience.",
           },
           {
             name: "Hong Kong Fried Rice",
@@ -371,6 +393,8 @@ export class Data extends Component {
             cost: 110,
             rating: 3.5,
             serves: 2,
+            details:
+              "A delightful dish that combines the goodness of fluffy rice with a diverse mix of vegetables and subtle seasonings, creating a harmonious blend of textures and flavors inspired by Hong Kong cuisine.",
           },
           {
             name: "Triple Schezwan Fried Rice",
@@ -381,6 +405,8 @@ export class Data extends Component {
             cost: 140,
             rating: 4.0,
             serves: 2,
+            details:
+              "An adventurous fusion dish featuring a trio of fiery Schezwan sauces, aromatic spices, and a medley of colorful vegetables, all stir-fried with rice to create a tantalizing explosion of flavors and heat.",
           },
           {
             name: "Chicken Fried Rice",
@@ -391,6 +417,8 @@ export class Data extends Component {
             cost: 100,
             rating: 3.0,
             serves: 2,
+            details:
+              "A delectable Asian classic, where tender pieces of chicken are wok-fried with fluffy rice, fresh vegetables, and savory seasonings, offering a satisfying and flavorful meal.",
           },
           {
             name: "Chicken Schezwan Fried Rice",
@@ -401,6 +429,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.5,
             serves: 2,
+            details:
+              "A spicy and flavorful delicacy that combines succulent chicken pieces, aromatic Schezwan sauce, and a medley of vegetables, all wok-fried with rice to create a fiery and satisfying culinary experience.",
           },
           {
             name: "Chicken Triple Schezwan Fried Rice",
@@ -411,6 +441,8 @@ export class Data extends Component {
             cost: 150,
             rating: 4.0,
             serves: 2,
+            details:
+              "An indulgent fusion dish featuring a trio of bold Schezwan sauces, tender chicken pieces, and a colorful assortment of vegetables, all expertly stir-fried with rice to create a mouthwatering blend of flavors and heat.",
           },
           {
             name: "Egg Fried Rice",
@@ -421,6 +453,8 @@ export class Data extends Component {
             cost: 90,
             rating: 3.0,
             serves: 2,
+            details:
+              "A classic Asian favorite, where fluffy rice is stir-fried with scrambled eggs, fresh vegetables, and a touch of seasoning, resulting in a simple yet satisfying dish with a delightful balance of flavors and textures.",
           },
           {
             name: "Chicken Hong Kong Fried Rice",
@@ -431,6 +465,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.5,
             serves: 2,
+            details:
+              "A delightful blend of tender chicken pieces, fluffy rice, and an assortment of vegetables, all wok-fried to perfection and seasoned with a hint of Hong Kong-inspired flavors, offering a delicious and hearty meal.",
           },
           {
             name: "Veg Noodles",
@@ -441,6 +477,8 @@ export class Data extends Component {
             cost: 80,
             rating: 3.0,
             serves: 2,
+            details:
+              "A delightful dish featuring thin noodles stir-fried with a colorful mix of fresh vegetables and savory seasonings, resulting in a flavorful and satisfying combination that's perfect for noodle lovers.",
           },
           {
             name: "Veg Hakka Noodles",
@@ -451,6 +489,8 @@ export class Data extends Component {
             cost: 90,
             rating: 3.5,
             serves: 2,
+            details:
+              "A flavorful dish featuring thin noodles stir-fried with a colorful mix of fresh vegetables and aromatic Hakka seasonings, creating a savory and satisfying combination for noodle enthusiasts.",
           },
           {
             name: "Veg Chowmein",
@@ -483,6 +523,8 @@ export class Data extends Component {
             cost: 100,
             rating: 4.0,
             serves: 2,
+            details:
+              "A zesty fusion dish that pairs thin noodles with a spicy Schezwan sauce and a medley of vibrant vegetables, creating a tantalizing and fiery noodle experience for those craving bold flavors.",
           },
           {
             name: "Veg Hong Kong Noodles",
@@ -493,6 +535,8 @@ export class Data extends Component {
             cost: 110,
             rating: 4.0,
             serves: 2,
+            details:
+              "A savory delight that combines thin noodles with a diverse selection of vegetables and subtle seasonings, inspired by Hong Kong cuisine, offering a harmonious blend of textures and flavors.",
           },
           {
             name: "Egg Noodles",
@@ -503,6 +547,8 @@ export class Data extends Component {
             cost: 90,
             rating: 3.0,
             serves: 2,
+            details:
+              "A comforting dish where thin noodles are stir-fried with scrambled eggs and a touch of seasonings, resulting in a simple yet satisfying meal that highlights the deliciousness of eggs.",
           },
           {
             name: "Chicken Noodles",
@@ -513,6 +559,8 @@ export class Data extends Component {
             cost: 100,
             rating: 3.0,
             serves: 2,
+            details:
+              "A mouthwatering creation featuring tender chicken pieces paired with thin noodles, fresh vegetables, and savory seasonings, offering a hearty and flavorful noodle experience.",
           },
           {
             name: "Chicken Schezwan Noodles",
@@ -523,6 +571,8 @@ export class Data extends Component {
             cost: 120,
             rating: 3.5,
             serves: 2,
+            details:
+              "A spicy and flavorful dish that marries tender chicken pieces with thin noodles, vibrant vegetables, and a zesty Schezwan sauce, creating a tantalizing and fiery noodle sensation.",
           },
           {
             name: "Kung Pao Chicken",
@@ -543,6 +593,8 @@ export class Data extends Component {
             cost: 130,
             rating: 3.5,
             serves: 2,
+            details:
+              "A delightful blend of tender chicken pieces, thin noodles, and an assortment of vegetables, all expertly wok-fried and seasoned with a hint of Hong Kong-inspired flavors, delivering a delicious and hearty noodle dish.",
           },
           {
             name: "Chicken Chowmein",
@@ -553,6 +605,8 @@ export class Data extends Component {
             cost: 100,
             rating: 4.0,
             serves: 2,
+            details:
+              "A classic Chinese stir-fry dish featuring tender chicken pieces, crispy noodles, and a flavorful mix of vegetables, all cooked to perfection and seasoned with savory sauces, creating a satisfying and mouthwatering meal.",
           },
         ],
       },
@@ -568,6 +622,8 @@ export class Data extends Component {
             cost: 30,
             rating: 3.0,
             serves: 1,
+            details:
+              "A timeless favorite characterized by its creamy, smooth texture and the sweet, comforting taste of pure vanilla, making it a delightful treat for all ages.",
           },
           {
             name: "Chocolate Ice Cream",
@@ -578,6 +634,8 @@ export class Data extends Component {
             cost: 40,
             rating: 3.5,
             serves: 1,
+            details:
+              "A luscious dessert infused with rich, velvety chocolate flavors that provide a decadent and indulgent experience for chocolate lovers.",
           },
           {
             name: "Butterscotch Ice Cream",
@@ -588,6 +646,8 @@ export class Data extends Component {
             cost: 40,
             rating: 3.0,
             serves: 1,
+            details:
+              "A delightful dessert featuring creamy ice cream infused with the sweet and buttery flavor of butterscotch, offering a perfect balance of richness and sweetness in every scoop.",
           },
           {
             name: "Blueberry Ice Cream",
@@ -598,6 +658,8 @@ export class Data extends Component {
             cost: 40,
             rating: 4.0,
             serves: 1,
+            details:
+              "A fruity delight that combines the creamy goodness of ice cream with the vibrant taste of juicy blueberries, resulting in a refreshing and flavorful frozen treat.",
           },
           {
             name: "Strawberry Ice Cream",
@@ -608,6 +670,8 @@ export class Data extends Component {
             cost: 40,
             rating: 3.0,
             serves: 1,
+            details:
+              "A delightful frozen dessert that showcases the sweet and tangy essence of ripe strawberries, delivering a burst of fruity freshness with every spoonful.",
           },
         ],
       },

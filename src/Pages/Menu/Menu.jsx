@@ -125,7 +125,15 @@ export default function Menu() {
                   {menuData.map((element, indx) => {
                     const { title, items } = element;
                     return (
-                      <div key={indx} style={{ marginBottom: "3rem" }}>
+                      <div
+                        key={indx}
+                        style={{ marginBottom: "3rem" }}
+                        id={title
+                          .toLowerCase()
+                          .slice(0, -2)
+                          .split(" ")
+                          .join("")}
+                      >
                         <div
                           className="py-1 text-white px-4 rounded menu-item-title"
                           style={{
@@ -224,7 +232,6 @@ function MenuItems({ element, searchValue }) {
   const { cart, updateCart } = useContext(ConsumerEffect);
 
   const [count, setCount] = useState(() => {
-    console.log("count");
     return cart.length > 0
       ? cart
           .filter(({ name }) => name.includes(element.name))

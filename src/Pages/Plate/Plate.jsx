@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Consumer } from "../../resources/Context/Context";
+import { useContext, useEffect, useState } from "react";
+import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Plate() {
@@ -9,6 +9,14 @@ export default function Plate() {
   const reserveStatus = location ?? false;
 
   useEffect(() => window.scrollTo({ top: 0 }), [false]);
+
+  const { cart } = useContext(ConsumerEffect);
+
+  useEffect(() => {
+    if (cart.length > 0) {
+      console.log(cart.sort((a, b) => a.category - b.category));
+    }
+  });
 
   return (
     <Consumer>
@@ -63,15 +71,19 @@ export default function Plate() {
                 </div>
 
                 <div className="cart-items-list">
-                  {cart.map((item, indx) => {
-                    return (
-                      <CartItem
-                        item={item}
-                        updateCart={updateCart}
-                        key={indx}
-                      />
-                    );
-                  })}
+                  {cart
+                    .sort((a, b) => a.category - b.category)
+                    .map((item, indx) => {
+                      return (
+                        <>
+                          <CartItem
+                            item={item}
+                            updateCart={updateCart}
+                            key={indx}
+                          />
+                        </>
+                      );
+                    })}
                   <hr className="w-100" />
                   <div className="additional-costs">
                     <div>
@@ -182,72 +194,102 @@ function CartItem({ item, updateCart }) {
   }, [count]);
 
   return (
-    <div className="cart-item">
-      <div className="cart-item-left">
-        <img
-          className="cart-item-img"
-          src={`Images/Menu/${img}.jpg`}
-          style={{
-            width: 350,
-            borderTopLeftRadius: 8,
-            borderBottomLeftRadius: 8,
-          }}
-          alt=""
-        />
-        <img
-          src={`Images/${veg ? "Veg" : "Non"}.png`}
-          width={20}
-          height={20}
-          alt=""
-        />
-        <h3 className="item-name">{name}</h3>
-      </div>
-      <div className="cart-item-right">
-        <div
-          className="btn-group float-right mb-3"
-          role="group"
-          style={{
-            ...(count === 0 && { display: "none" }),
-          }}
-        >
-          <button
-            className="btn btn-secondary"
-            onClick={async () => {
-              setCount((prevVal) => prevVal - 1);
+    <div className="border border-top-0 border-right-0 border-left-0 py-lg-4 py-2 px-3 d-flex flex-column flex-lg-row">
+      <img
+        loading="lazy"
+        src={img ? `Images/Menu/${img}.jpg` : ""}
+        alt={name}
+        style={{
+          maxWidth: "20rem",
+          aspectRatio: "16/9",
+          transitionDuration: "200ms",
+          objectFit: "cover",
+          objectPosition: "center",
+        }}
+      />
+      {/* </div> */}
+      <div
+        className="d-flex flex-lg-row flex-column align-items-start w-100 px-lg-4 px-2 pt-2"
+        style={{ justifyContent: "space-between" }}
+      >
+        <div className="d-flex flex-column" style={{ gap: "0.6em" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 6,
+              alignItems: "center",
             }}
           >
-            -
-          </button>
-          <div className="btn btn-text">{count}</div>
+            {category !== "dessert" && category !== "baverage" && (
+              <img
+                src={veg ? "Images/Veg.png" : "Images/Non.png"}
+                alt={veg ? "Veg" : "Non-Veg"}
+                width={20}
+                height={20}
+              />
+            )}
+            <p className="item-name">{name}</p>
+          </div>
+        </div>
+        <div style={{ marginLeft: "auto" }}>
           <button
-            disabled={count >= 10}
-            className="btn btn-secondary"
+            style={{
+              ...(count > 0 && { display: "none" }),
+            }}
+            className="btn btn-dark add-btn"
             onClick={async () => {
               setCount((prevVal) => prevVal + 1);
             }}
           >
-            +
+            + 🍽️
           </button>
-        </div>
-        <div className="mt-3">
-          <span
-            style={{ ...(count > 0 && { display: "none" }) }}
-            className="text-secondary h4"
+          <div
+            className="btn-group float-right mb-3"
+            role="group"
+            style={{
+              ...(count === 0 && { display: "none" }),
+            }}
           >
-            {`₹${cost}`}
-          </span>
-          <span
-            style={{ ...(count === 0 && { display: "none" }) }}
-            className="text-success h4"
-          >
-            {`₹${cost * count} `}
-          </span>
-          <span
-            style={{ ...(count === 0 && { display: "none" }) }}
-            className=""
-          >
-            ({cost} x {count})
-          </span>
+            <button
+              className="btn btn-dark"
+              onClick={async () => {
+                setCount((prevVal) => prevVal - 1);
+              }}
+            >
+              -
+            </button>
+            <div className="btn btn-text">{count}</div>
+            <button
+              disabled={count >= 10}
+              className="btn btn-dark"
+              onClick={async () => {
+                setCount((prevVal) => prevVal + 1);
+              }}
+            >
+              +
+            </button>
+          </div>
+          <div className="mt-3">
+            <span
+              style={{ ...(count > 0 && { display: "none" }) }}
+              className="text-secondary item-cost-big"
+            >
+              {`₹${cost}`}
+            </span>
+            <span
+              style={{ ...(count === 0 && { display: "none" }) }}
+              className="text-success item-cost-big"
+            >
+              {`₹${cost * count} `}
+            </span>
+            <span
+              style={{ ...(count === 0 && { display: "none" }) }}
+              className=""
+            >
+              ({cost} x {count})
+            </span>
+          </div>
         </div>
       </div>
     </div>

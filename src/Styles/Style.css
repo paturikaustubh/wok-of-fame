@@ -444,10 +444,8 @@ img {
   justify-content: space-between;
 }
 
-@media (max-width: 760px) {
-  .cart-item-img {
-    display: none;
-  }
+.cart-item-img {
+  width: 350px;
 }
 
 .cart-item-left {
@@ -466,8 +464,14 @@ img {
 }
 
 .item-name {
-  font-size: 1.6rem;
+  font-size: 1.6em;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+  }
 }
 
 .cart-item-right {

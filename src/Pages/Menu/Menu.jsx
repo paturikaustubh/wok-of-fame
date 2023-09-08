@@ -44,20 +44,9 @@ export default function Menu() {
     });
   }, [false]);
 
-  useEffect(() => {
-    menu.map((element) => {
-      const { items } = element;
-      // console.log(
-      //   items.filter(({ name }) =>
-      //     name.toLowerCase().includes(searchValue.toLowerCase())
-      //   )
-      // );
-    });
-  }, [searchValue]);
-
   return (
     <Consumer>
-      {({ updateCart, cart, setLoading, loading }) => {
+      {({ updateCart, cart }) => {
         return (
           <Fragment>
             <div className="container-fluid">
@@ -227,32 +216,10 @@ function MenuItems({ element, searchValue }) {
     if (item.name.includes(element.name)) return item.qnty;
   })[0];
   cartCount = cartCount ? cartCount.qnty : 0;
-  console.log(cartCount, element.name, "cart count");
   const [count, setCount] = useState(cartCount);
   const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    console.log("rendered", cartCount, element.name);
-    setCount(cartCount);
-  }, [false]);
-
-  // useLayoutEffect(() => {
-  //   setCount(() => {
-  //     console.log(
-  //       cart.length > 0
-  //         ? cart.filter(({ name }) => name.includes(element.name))
-  //         : "ntg here"
-  //     );
-  //     return cart.length > 0
-  //       ? cart
-  //           .filter(({ name }) => name.includes(element.name))
-  //           .map(({ qnty }) => qnty)[0] ?? 0
-  //       : 0;
-  //   });
-  // }, [searchValue]);
-
-  useEffect(() => {
-    console.log("rendered-count", element.name);
     if (!initialLoad) {
       updateCart({
         details: element.details,
@@ -356,7 +323,7 @@ function MenuItems({ element, searchValue }) {
             }}
             className="btn btn-dark add-btn"
             onClick={async () => {
-              setCount((prevVal) => prevVal + 1);
+              setCount(cartCount + 1);
             }}
           >
             + 🍽️
@@ -371,10 +338,7 @@ function MenuItems({ element, searchValue }) {
             <button
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => {
-                  console.log(prevVal, element.name, "sub");
-                  return prevVal - 1;
-                });
+                setCount(cartCount - 1);
               }}
             >
               -
@@ -384,10 +348,7 @@ function MenuItems({ element, searchValue }) {
               disabled={cartCount >= 10}
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => {
-                  console.log(prevVal, element.name, "add");
-                  return prevVal + 1;
-                });
+                setCount(cartCount + 1);
               }}
             >
               +

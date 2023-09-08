@@ -157,15 +157,7 @@ export default function Menu() {
                           .map((element, index) => {
                             return (
                               <MenuItems
-                                element={{
-                                  ...element,
-                                  ...cart.map((cartEle) => {
-                                    if (cartEle.name === element.name) {
-                                      return cartEle;
-                                    }
-                                    return element;
-                                  })[0],
-                                }}
+                                element={element}
                                 key={index}
                                 searchValue={searchValue}
                               />
@@ -231,14 +223,18 @@ export default function Menu() {
 function MenuItems({ element, searchValue }) {
   const { cart, updateCart } = useContext(ConsumerEffect);
 
-  const [count, setCount] = useState(() => {
-    return cart.length > 0
-      ? cart
-          .filter(({ name }) => name.includes(element.name))
-          .map(({ qnty }) => qnty)[0] ?? 0
-      : 0;
-  });
+  let cartCount = cart.filter((item) => {
+    if (item.name.includes(element.name)) return item.qnty;
+  })[0];
+  cartCount = cartCount ? cartCount.qnty : 0;
+  console.log(cartCount, element.name, "cart count");
+  const [count, setCount] = useState(cartCount);
   const [initialLoad, setInitialLoad] = useState(true);
+
+  useEffect(() => {
+    console.log("rendered", cartCount, element.name);
+    setCount(cartCount);
+  }, [false]);
 
   // useLayoutEffect(() => {
   //   setCount(() => {
@@ -256,6 +252,7 @@ function MenuItems({ element, searchValue }) {
   // }, [searchValue]);
 
   useEffect(() => {
+    console.log("rendered-count", element.name);
     if (!initialLoad) {
       updateCart({
         details: element.details,
@@ -355,7 +352,7 @@ function MenuItems({ element, searchValue }) {
         <div style={{ marginLeft: "auto" }}>
           <button
             style={{
-              ...(count > 0 && { display: "none" }),
+              ...(cartCount > 0 && { display: "none" }),
             }}
             className="btn btn-dark add-btn"
             onClick={async () => {
@@ -368,23 +365,29 @@ function MenuItems({ element, searchValue }) {
             className="btn-group float-right mb-3"
             role="group"
             style={{
-              ...(count === 0 && { display: "none" }),
+              ...(cartCount === 0 && { display: "none" }),
             }}
           >
             <button
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => prevVal - 1);
+                setCount((prevVal) => {
+                  console.log(prevVal, element.name, "sub");
+                  return prevVal - 1;
+                });
               }}
             >
               -
             </button>
-            <div className="btn btn-text">{count}</div>
+            <div className="btn btn-text">{cartCount}</div>
             <button
-              disabled={count >= 10}
+              disabled={cartCount >= 10}
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => prevVal + 1);
+                setCount((prevVal) => {
+                  console.log(prevVal, element.name, "add");
+                  return prevVal + 1;
+                });
               }}
             >
               +
@@ -392,22 +395,22 @@ function MenuItems({ element, searchValue }) {
           </div>
           <div className="mt-3">
             <span
-              style={{ ...(count > 0 && { display: "none" }) }}
+              style={{ ...(cartCount > 0 && { display: "none" }) }}
               className="text-secondary item-cost-big"
             >
               {`₹${element.cost}`}
             </span>
             <span
-              style={{ ...(count === 0 && { display: "none" }) }}
+              style={{ ...(cartCount === 0 && { display: "none" }) }}
               className="text-success item-cost-big"
             >
-              {`₹${element.cost * count} `}
+              {`₹${element.cost * cartCount} `}
             </span>
             <span
-              style={{ ...(count === 0 && { display: "none" }) }}
+              style={{ ...(cartCount === 0 && { display: "none" }) }}
               className=""
             >
-              ({element.cost} x {count})
+              ({element.cost} x {cartCount})
             </span>
           </div>
         </div>

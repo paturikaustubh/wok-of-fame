@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
+import { useEffect, useState } from "react";
+import { Consumer } from "../../resources/Context/Context";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Plate() {
@@ -9,14 +9,6 @@ export default function Plate() {
   const reserveStatus = location ?? false;
 
   useEffect(() => window.scrollTo({ top: 0 }), [false]);
-
-  const { cart } = useContext(ConsumerEffect);
-
-  useEffect(() => {
-    if (cart.length > 0) {
-      console.log(cart.sort((a, b) => a.category - b.category));
-    }
-  });
 
   return (
     <Consumer>
@@ -75,13 +67,11 @@ export default function Plate() {
                     .sort((a, b) => a.category - b.category)
                     .map((item, indx) => {
                       return (
-                        <>
-                          <CartItem
-                            item={item}
-                            updateCart={updateCart}
-                            key={indx}
-                          />
-                        </>
+                        <CartItem
+                          item={item}
+                          updateCart={updateCart}
+                          key={indx}
+                        />
                       );
                     })}
                   <hr className="w-100" />
@@ -179,7 +169,11 @@ function CartItem({ item, updateCart }) {
   const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    if (!initialLoad)
+    setCount(qnty);
+  }, [false]);
+
+  useEffect(() => {
+    if (!initialLoad) {
       updateCart({
         details: details,
         rating: rating,
@@ -190,7 +184,9 @@ function CartItem({ item, updateCart }) {
         category: category,
         img: img,
       });
-    else setInitialLoad(false);
+    } else {
+      setInitialLoad(false);
+    }
   }, [count]);
 
   return (
@@ -235,7 +231,7 @@ function CartItem({ item, updateCart }) {
         <div style={{ marginLeft: "auto" }}>
           <button
             style={{
-              ...(count > 0 && { display: "none" }),
+              ...(qnty > 0 && { display: "none" }),
             }}
             className="btn btn-dark add-btn"
             onClick={async () => {
@@ -248,7 +244,7 @@ function CartItem({ item, updateCart }) {
             className="btn-group float-right mb-3"
             role="group"
             style={{
-              ...(count === 0 && { display: "none" }),
+              ...(qnty === 0 && { display: "none" }),
             }}
           >
             <button
@@ -259,9 +255,9 @@ function CartItem({ item, updateCart }) {
             >
               -
             </button>
-            <div className="btn btn-text">{count}</div>
+            <div className="btn btn-text">{qnty}</div>
             <button
-              disabled={count >= 10}
+              disabled={qnty >= 10}
               className="btn btn-dark"
               onClick={async () => {
                 setCount((prevVal) => prevVal + 1);
@@ -272,22 +268,22 @@ function CartItem({ item, updateCart }) {
           </div>
           <div className="mt-3">
             <span
-              style={{ ...(count > 0 && { display: "none" }) }}
+              style={{ ...(qnty > 0 && { display: "none" }) }}
               className="text-secondary item-cost-big"
             >
               {`₹${cost}`}
             </span>
             <span
-              style={{ ...(count === 0 && { display: "none" }) }}
+              style={{ ...(qnty === 0 && { display: "none" }) }}
               className="text-success item-cost-big"
             >
-              {`₹${cost * count} `}
+              {`₹${cost * qnty} `}
             </span>
             <span
-              style={{ ...(count === 0 && { display: "none" }) }}
+              style={{ ...(qnty === 0 && { display: "none" }) }}
               className=""
             >
-              ({cost} x {count})
+              ({cost} x {qnty})
             </span>
           </div>
         </div>

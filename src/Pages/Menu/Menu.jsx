@@ -269,6 +269,7 @@ function MenuItems({ element, searchValue }) {
           transitionDuration: "200ms",
           objectFit: "cover",
           objectPosition: "center",
+          marginInline: "auto",
         }}
       />
       {/* </div> */}

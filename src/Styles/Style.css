@@ -986,3 +986,16 @@ select {
 .sidebar-pannel > .pages > a:hover {
   background-color: #e5e5e5;
 }
+
+.such-empty {
+  padding-inline: 0.5em;
+  font-size: 2.5em;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .such-empty {
+    padding-inline: 0.5em;
+    font-size: 3em;
+  }
+}

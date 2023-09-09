@@ -33,18 +33,10 @@ export default function Plate() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  padding: 4,
                   flexDirection: "column",
                 }}
               >
-                <p
-                  style={{
-                    fontWeight: 400,
-                    fontSize: "3rem",
-                  }}
-                >
-                  Woah... Such empty...🍽️
-                </p>
+                <p className="such-empty">Woah... Such empty...🍽️</p>
                 <Link
                   onClick={() => window.scrollTo({ top: 0 })}
                   to="/wok-of-fame/menu"

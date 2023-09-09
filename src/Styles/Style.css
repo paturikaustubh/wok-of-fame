@@ -745,7 +745,7 @@ img {
   padding-block: 0.3em;
   padding-inline: 1.5em;
   color: hsl(122, 100%, 31%);
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 500;
   border: 0.05em solid hsl(122, 100%, 31%);
   letter-spacing: 0.03em;

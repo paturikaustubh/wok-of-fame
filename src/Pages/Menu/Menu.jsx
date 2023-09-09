@@ -238,7 +238,7 @@ function MenuItems({ element, searchValue }) {
 
   return (
     <div
-      className="border border-top-0 border-right-0 border-left-0 py-lg-4 py-2 px-3 d-flex flex-column flex-lg-row"
+      className="border border-top-0 border-right-0 border-left-0 py-lg-4 py-2 px-lg-3 px-1 d-flex flex-column flex-lg-row"
       style={{
         ...(searchValue.length > 0 &&
           element.name !== searchValue && { display: "none" }),
@@ -264,12 +264,12 @@ function MenuItems({ element, searchValue }) {
         src={element.img ? `Images/Menu/${element.img}.jpg` : ""}
         alt={element.name}
         style={{
-          maxWidth: "20rem",
+          maxWidth: "20em",
+          minWidth: "10%",
           aspectRatio: "16/9",
           transitionDuration: "200ms",
           objectFit: "cover",
           objectPosition: "center",
-          marginInline: "auto",
         }}
       />
       {/* </div> */}

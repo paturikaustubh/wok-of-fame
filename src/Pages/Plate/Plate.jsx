@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Consumer } from "../../resources/Context/Context";
+import { useContext, useEffect, useState } from "react";
+import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Plate() {
@@ -66,6 +66,7 @@ export default function Plate() {
                   {cart
                     .sort((a, b) => a.category - b.category)
                     .map((item, indx) => {
+                      console.log(cart);
                       return (
                         <CartItem
                           item={item}
@@ -165,12 +166,16 @@ export default function Plate() {
 function CartItem({ item, updateCart }) {
   const { category, cost, details, img, name, qnty, rating, veg } = item;
 
-  const [count, setCount] = useState(qnty);
-  const [initialLoad, setInitialLoad] = useState(true);
+  const { cart } = useContext(ConsumerEffect);
 
-  useEffect(() => {
-    setCount(qnty);
-  }, [false]);
+  let cartCount = cart.filter((item) => {
+    if (item.name.includes(name)) return item.qnty;
+  })[0];
+  cartCount = cartCount ? cartCount.qnty : 0;
+
+  const [count, setCount] = useState(cartCount);
+  const [initialLoad, setInitialLoad] = useState(true);
+  console.log(count);
 
   useEffect(() => {
     if (!initialLoad) {
@@ -231,11 +236,11 @@ function CartItem({ item, updateCart }) {
         <div style={{ marginLeft: "auto" }}>
           <button
             style={{
-              ...(qnty > 0 && { display: "none" }),
+              ...(cartCount > 0 && { display: "none" }),
             }}
             className="btn btn-dark add-btn"
             onClick={async () => {
-              setCount((prevVal) => prevVal + 1);
+              setCount(cartCount + 1);
             }}
           >
             + 🍽️
@@ -244,23 +249,23 @@ function CartItem({ item, updateCart }) {
             className="btn-group float-right mb-3"
             role="group"
             style={{
-              ...(qnty === 0 && { display: "none" }),
+              ...(cartCount === 0 && { display: "none" }),
             }}
           >
             <button
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => prevVal - 1);
+                setCount(cartCount - 1);
               }}
             >
               -
             </button>
-            <div className="btn btn-text">{qnty}</div>
+            <div className="btn btn-text">{cartCount}</div>
             <button
-              disabled={qnty >= 10}
+              disabled={cartCount >= 10}
               className="btn btn-dark"
               onClick={async () => {
-                setCount((prevVal) => prevVal + 1);
+                setCount(cartCount + 1);
               }}
             >
               +
@@ -268,22 +273,22 @@ function CartItem({ item, updateCart }) {
           </div>
           <div className="mt-3">
             <span
-              style={{ ...(qnty > 0 && { display: "none" }) }}
+              style={{ ...(cartCount > 0 && { display: "none" }) }}
               className="text-secondary item-cost-big"
             >
               {`₹${cost}`}
             </span>
             <span
-              style={{ ...(qnty === 0 && { display: "none" }) }}
+              style={{ ...(cartCount === 0 && { display: "none" }) }}
               className="text-success item-cost-big"
             >
-              {`₹${cost * qnty} `}
+              {`₹${cost * cartCount} `}
             </span>
             <span
-              style={{ ...(qnty === 0 && { display: "none" }) }}
+              style={{ ...(cartCount === 0 && { display: "none" }) }}
               className=""
             >
-              ({cost} x {qnty})
+              ({cost} x {cartCount})
             </span>
           </div>
         </div>

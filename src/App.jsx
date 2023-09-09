@@ -20,8 +20,6 @@ const Plate = lazy(() => import("./Pages/Plate/Plate"));
 const Details = lazy(() => import("./Pages/Details/Details"));
 const ReserveTable = lazy(() => import("./Pages/ReserveTable/ReserveTable/"));
 
-const Test = lazy(() => import("./Pages/Test"));
-
 export default function App() {
   return (
     <Data>
@@ -35,7 +33,6 @@ export default function App() {
                   <Route exact path="/wok-of-fame/" element={<Home />} />
                   <Route exact path="/wok-of-fame/menu" element={<Menu />} />
                   <Route path="/wok-of-fame/plate" element={<Plate />} />
-                  <Route exact path="/wok-of-fame/test" element={<Test />} />
                   <Route
                     exact
                     path="/wok-of-fame/details"

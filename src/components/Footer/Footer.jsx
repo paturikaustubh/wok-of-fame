@@ -19,11 +19,11 @@ function Footer() {
             ></iframe>
           </div>
         </div>
-        <div className="row align-items-center gap-1">
+        <div className="row align-items-start">
           <div className="col-md-4 col-12 my-sm-0 my-md-0 font-weight-light">
             <p>
               We are open from 6:00 AM to 12:30 AM. No delivery orders are taken
-              against the timings.
+              outside these timings.
             </p>
             <p>We serve both Veg and Non-Veg</p>
           </div>
@@ -31,32 +31,11 @@ function Footer() {
             <p className="lead">
               We even accept party orders anywhere in and around Mumbai
             </p>
+          </div>
+          <div className="col-md-4 col-12 my-sm-5 my-md-0">
             <button className="btn btn-outline-light btn-lg">
               📞Contact Us
             </button>
-          </div>
-          <div className="col-md-4 col-12 my-sm-5 my-md-0">
-            <h5 className="text-info">About Us</h5>
-            <div>
-              <a href="#" className="text-light">
-                Know More
-              </a>
-            </div>
-            <div>
-              <a href="#" className="text-light">
-                Blog
-              </a>
-            </div>
-            <div>
-              <a href="#" className="text-light">
-                Events
-              </a>
-            </div>
-            <div>
-              <a href="#" className="text-light">
-                Social Media
-              </a>
-            </div>
           </div>
         </div>
 

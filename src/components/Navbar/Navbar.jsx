@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Sidebar from "../Sidebar/Sidebar";
+import { ConsumerEffect } from "../../resources/Context/Context";
 
 function Navbar() {
+  const { cart } = useContext(ConsumerEffect);
+
   const [navTransition, setNavTransition] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -71,7 +74,20 @@ function Navbar() {
                 navTransition ? "text-white" : "text-danger "
               } btn-lg`}
             >
-              Plate
+              Plate{" "}
+              {cart
+                .map(({ qnty }) => qnty)
+                .reduce(
+                  (accumulator, currentValue) => accumulator + currentValue,
+                  0
+                ) > 0
+                ? `(${cart
+                    .map(({ qnty }) => qnty)
+                    .reduce(
+                      (accumulator, currentValue) => accumulator + currentValue,
+                      0
+                    )})`
+                : ""}
             </Link>
           </div>
         </div>

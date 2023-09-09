@@ -1,17 +1,18 @@
-import { useState } from "react";
-import { Consumer } from "../../resources/Context/Context";
+import { useContext, useState } from "react";
+import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import Dialog from "../../components/Dialog/Dialog";
 import { useLocation } from "react-router-dom";
 
 export default function Address() {
+  const { userDetails, setUserDetails } = useContext(ConsumerEffect);
   const [showSaveDialog, setShowSaveDialog] = useState(false);
   const [showPaymentDialog, setShowPaymentDialog] = useState(false);
   const [formDetails, setFormDetails] = useState({
-    firstName: "",
-    lastName: "",
-    phNo: "",
-    email: "",
-    address: "",
+    firstName: userDetails.firstName ?? "",
+    lastName: userDetails.lastName ?? "",
+    phNo: userDetails.phNo > 0 ? userDetails.phNo : "",
+    email: userDetails.email ?? "",
+    address: userDetails.address ?? "",
   });
 
   const reserveStatus = useLocation().state;
@@ -28,7 +29,10 @@ export default function Address() {
                     <span>Provide your details</span>
                     <button
                       className="save-data-button"
-                      onClick={() => setShowSaveDialog(true)}
+                      onClick={() => {
+                        setShowSaveDialog(true);
+                        setUserDetails(formDetails);
+                      }}
                       disabled={
                         formDetails.firstName === "" ||
                         formDetails.firstName.length > 25 ||
@@ -43,37 +47,24 @@ export default function Address() {
                       Save Details
                     </button>
                     <Dialog
-                      title={"Save Details"}
+                      title={"Details are saved"}
                       show={showSaveDialog}
                       setShow={setShowSaveDialog}
                       content={
                         <div className="save-data-dialog">
                           <div style={{ fontSize: "1.3em", fontWeight: 500 }}>
-                            Bemoce a member of our family!
-                          </div>
-                          <div>
-                            <label
-                              htmlFor="data-name"
-                              style={{ fontWeight: 400 }}
-                            >
-                              What would you like to call it?
-                            </label>
-                            <input
-                              autoFocus
-                              type="text"
-                              className="data-name-input"
-                              id="data-name"
-                              placeholder="Name"
-                            />
+                            Thank you for becoming a member!
                           </div>
                         </div>
                       }
                       actions={
                         <button
                           className="dialog-action-button blue"
-                          onClick={() => setShowSaveDialog(false)}
+                          onClick={() => {
+                            setShowSaveDialog(false);
+                          }}
                         >
-                          Save
+                          Close
                         </button>
                       }
                     />
@@ -94,6 +85,7 @@ export default function Address() {
                         className="form-input"
                         placeholder="First Name"
                         id="first-name"
+                        value={formDetails.firstName}
                         onInput={({ target }) => {
                           setFormDetails((prevVal) => ({
                             ...prevVal,
@@ -110,6 +102,7 @@ export default function Address() {
                         className="form-input"
                         placeholder="Last Name"
                         id="last-name"
+                        value={formDetails.lastName}
                         onInput={({ target }) => {
                           setFormDetails((prevVal) => ({
                             ...prevVal,
@@ -131,6 +124,7 @@ export default function Address() {
                           id="phno"
                           min={0}
                           max={9999999999}
+                          value={formDetails.phNo}
                           onInput={({ target }) => {
                             setFormDetails((prevVal) => ({
                               ...prevVal,
@@ -154,6 +148,7 @@ export default function Address() {
                         className="form-input"
                         placeholder="Email Address"
                         id="email"
+                        value={formDetails.email}
                         onInput={({ target }) =>
                           setFormDetails((prevVals) => ({
                             ...prevVals,
@@ -166,6 +161,7 @@ export default function Address() {
                         className="form-input text-area"
                         placeholder="Address"
                         id="address"
+                        value={formDetails.address}
                         onInput={({ target }) =>
                           setFormDetails((prevVals) => ({
                             ...prevVals,
@@ -190,18 +186,21 @@ export default function Address() {
                           formDetails.address === ""
                         }
                       >
-                        Proceed to Payment
+                        Confirm Order
                       </button>
                       <Dialog
-                        title={"OOPS!"}
+                        title={
+                          reserveStatus.reserve
+                            ? "Saved a table for you!"
+                            : "Cooking your order now!"
+                        }
                         show={showPaymentDialog}
                         setShow={setShowPaymentDialog}
                         content={
                           <>
                             {reserveStatus.reserve ? (
                               <div>
-                                Since we can't connect to the payment API at the
-                                moment, we request you to pay the amount of,{" "}
+                                You can pay the amount of{" "}
                                 <span className="text-info">
                                   ₹
                                   {reserveStatus.reserve
@@ -216,13 +215,12 @@ export default function Address() {
                               </div>
                             ) : (
                               <div>
-                                Since we can't connect to the payment API, we
-                                provide you Cash on Delivery service for the
-                                amount,{" "}
+                                Our chef is on your order! You will recieve your
+                                order within 30min. Payment of{" "}
                                 <span className="text-info">
                                   ₹{totalPayment}
-                                </span>
-                                .
+                                </span>{" "}
+                                can be done by Cash on Delivery.
                               </div>
                             )}
                           </>

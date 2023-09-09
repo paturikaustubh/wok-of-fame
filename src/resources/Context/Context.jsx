@@ -51,12 +51,17 @@ export class Data extends Component {
     this.setState({ loading: loadingState });
   };
 
+  setUserDetails = (details) => {
+    this.setState({ userDetails: details });
+  };
+
   state = {
     updateCart: this.updateCart,
     handleEmoji: this.handleEmoji,
     setLoading: this.setLoading,
     setTotalPayment: this.setTotalPayment,
     setTableDetails: this.setTableDetails,
+    setUserDetails: this.setUserDetails,
     enableEmojis: true,
     loading: false,
     specials: [
@@ -747,6 +752,13 @@ export class Data extends Component {
       table: "A/C",
       count: 4,
       date: "",
+    },
+    userDetails: {
+      firstName: "",
+      lastName: "",
+      phNo: 0,
+      email: "",
+      address: "",
     },
   };
 

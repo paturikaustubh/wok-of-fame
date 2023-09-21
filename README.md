@@ -6,7 +6,7 @@ This is just an idea of how the website would look and mainly focuses on UI/UX d
 
 ## Technical Details
 
-- **Frontend Framework:** Flikipedia is built using [React.js](https://reactjs.org/), a powerful JavaScript library for building user interfaces.
+- **Frontend Framework:** Wok of Fame is built using [React.js](https://reactjs.org/), a powerful JavaScript library for building user interfaces.
 
 - **Styling:** I've used [Bootstrap](https://getbootstrap.com/).
 

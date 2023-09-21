@@ -8,7 +8,7 @@ This is just an idea of how the website would look and mainly focuses on UI/UX d
 
 - **Frontend Framework:** Flikipedia is built using [React.js](https://reactjs.org/), a powerful JavaScript library for building user interfaces.
 
-- **Styling:** We've used [Bootstrap](https://getbootstrap.com/).
+- **Styling:** I've used [Bootstrap](https://getbootstrap.com/).
 
 - **Build Tool:** The project is powered by [Vite](https://vitejs.dev/), a fast and minimalist build tool for modern web development.
 

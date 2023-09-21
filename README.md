@@ -13,7 +13,7 @@ This is just an idea of how the website would look and mainly focuses on UI/UX d
 - **Build Tool:** The project is powered by [Vite](https://vitejs.dev/), a fast and minimalist build tool for modern web development.
 
 ## Getting started
-[Clikc here](https://paturikaustubh.github.io/wok-of-fame/) to explore best of Chinese!
+Click [here](https://paturikaustubh.github.io/wok-of-fame/) to explore best of Chinese!
 
 ## Installation Guide
 - Make sure you have Node installed, or you can download it from [here](https://nodejs.org/en/download).

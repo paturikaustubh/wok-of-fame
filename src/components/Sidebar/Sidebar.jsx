@@ -11,23 +11,29 @@ export default function Sidebar({ open, setOpen }) {
         <hr />
         <div className="pages">
           <Link
-            onClick={() => window.scrollTo({ top: 0 })}
+            onClick={() => {
+              window.scrollTo({ top: 0 });
+              setOpen(false);
+            }}
             to="/wok-of-fame/menu"
-            onClick={() => setOpen(false)}
           >
             Menu 📃
           </Link>
           <Link
-            onClick={() => window.scrollTo({ top: 0 })}
+            onClick={() => {
+              window.scrollTo({ top: 0 });
+              setOpen(false);
+            }}
             to="/wok-of-fame/reserve"
-            onClick={() => setOpen(false)}
           >
             Reserve a Table 🪑
           </Link>
           <Link
-            onClick={() => window.scrollTo({ top: 0 })}
+            onClick={() => {
+              window.scrollTo({ top: 0 });
+              setOpen(false);
+            }}
             to="/wok-of-fame/plate"
-            onClick={() => setOpen(false)}
           >
             Plate 🍽️
           </Link>

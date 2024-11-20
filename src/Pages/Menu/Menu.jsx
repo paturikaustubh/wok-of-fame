@@ -5,14 +5,21 @@ import Dialog from "../../components/Dialog/Dialog";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
-  const { menu } = useContext(ConsumerEffect);
+  const { menu, cart: initCart } = useContext(ConsumerEffect);
   const reserve_state = useLocation().state ?? false;
 
   const [searchValue, setSearchValue] = useState("");
   // const [filterArr, setFilterArr] = useState([]);
   const [showSections, setShowSections] = useState(false);
+  const [prevCart, setPrevCart] = useState([]);
 
-  useEffect(() => window.scrollTo({ top: 0 }), [false]);
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    if (reserve_state) {
+      console.log("setting prev cart", initCart);
+      setPrevCart(initCart);
+    }
+  }, []);
 
   const filterButtons = ["Veg🥬", "Non-Veg🥩"];
 
@@ -38,12 +45,12 @@ export default function Menu() {
 
   return (
     <Consumer>
-      {({ updateCart, cart }) => {
+      {({ cart, resetCart }) => {
         return (
           <Fragment>
             <div className="container-fluid">
               <div className="container border mt-5 p-lg-4 p-1 rounded bg-light">
-                <div className="row align-items-center d-flex justify-content-between">
+                <div className="align-items-center d-flex justify-content-between">
                   <p
                     className="display-3 col-4 text-danger"
                     style={{
@@ -57,7 +64,7 @@ export default function Menu() {
                       to="/wok-of-fame/reserve"
                       className="btn btn-danger btn-lg"
                       onClick={() => {
-                        updateCart({});
+                        resetCart(prevCart);
                         window.scrollTo({ top: 0 });
                       }}
                     >
@@ -135,6 +142,7 @@ export default function Menu() {
                               .toLowerCase()
                               .includes(searchValue.toLowerCase())
                           )
+                          .sort((a, b) => b.veg - a.veg)
                           .map((element, index) => {
                             return (
                               <MenuItems
@@ -205,7 +213,7 @@ function MenuItems({ element, searchValue }) {
   const { cart, updateCart } = useContext(ConsumerEffect);
 
   let cartCount = cart.filter((item) => {
-    if (item.name.includes(element.name)) return item.qnty;
+    if (item && item.name?.includes(element.name)) return item.qnty ?? 0;
   })[0];
   cartCount = cartCount ? cartCount.qnty : 0;
   const [count, setCount] = useState(cartCount);

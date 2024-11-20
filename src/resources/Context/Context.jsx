@@ -4,35 +4,48 @@ const Context = createContext();
 
 export class Data extends Component {
   updateCart = (newItem) => {
-    if (newItem.qnty === 0) {
-      let indx = this.state.cart.findIndex(
-        (element) => element.name === newItem.name
-      );
-      this.state.cart.splice(indx, 1);
-      this.setState({
-        cart: [...this.state.cart],
-      });
-    } else {
-      if (
-        this.state.cart.filter(
-          (element) => element.name === newItem.name && element.name !== ""
-        ).length > 0
-      ) {
-        const indx = this.state.cart.findIndex(
+    if (newItem) {
+      if (newItem.qnty === 0) {
+        let indx = this.state.cart.findIndex(
           (element) => element.name === newItem.name
         );
-        this.setState(() => {
-          this.state.cart[indx].qnty = newItem.qnty;
-        });
+        this.state.cart.splice(indx, 1);
         this.setState({
           cart: [...this.state.cart],
         });
       } else {
-        this.setState({
-          cart: [newItem, ...this.state.cart],
-        });
+        if (
+          this.state.cart.filter(
+            (element) => element.name === newItem.name && element.name !== ""
+          ).length > 0
+        ) {
+          const indx = this.state.cart.findIndex(
+            (element) => element.name === newItem.name
+          );
+          this.setState(() => {
+            this.state.cart[indx].qnty = newItem.qnty;
+          });
+          this.setState({
+            cart: [...this.state.cart],
+          });
+        } else {
+          this.setState({
+            cart: [newItem, ...this.state.cart],
+          });
+        }
       }
+    } else {
+      this.setState({
+        cart: [],
+      });
     }
+  };
+
+  resetCart = (prevCart) => {
+    console.log("prevCart", prevCart);
+    this.setState({
+      cart: prevCart,
+    });
   };
 
   setTotalPayment = (grandTotal) => {
@@ -62,6 +75,7 @@ export class Data extends Component {
     setTotalPayment: this.setTotalPayment,
     setTableDetails: this.setTableDetails,
     setUserDetails: this.setUserDetails,
+    resetCart: this.resetCart,
     enableEmojis: true,
     loading: false,
     menu: [

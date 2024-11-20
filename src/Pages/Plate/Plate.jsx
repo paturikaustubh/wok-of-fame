@@ -17,12 +17,14 @@ export default function Plate() {
           .map(({ qnty }) => qnty)
           .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
         let bill = 0;
-        let delivery = 50;
+        const delivery = 50;
+        const reservationCharges = 150;
         cart.map(({ qnty, cost }) => {
           bill += qnty * cost;
         });
         let gst = Math.floor(bill * (18 / 100));
-        let grandTotal = gst + delivery + bill;
+        let grandTotal =
+          gst + bill + (reserveStatus ? reservationCharges : delivery);
         const roundoff = 10 - (grandTotal % 10);
         return (
           <>
@@ -57,6 +59,7 @@ export default function Plate() {
                 <div className="cart-items-list">
                   {cart
                     .sort((a, b) => a.category - b.category)
+                    .sort((a, b) => b.veg - a.veg)
                     .map((item, indx) => {
                       console.log(cart);
                       return (
@@ -94,8 +97,14 @@ export default function Plate() {
                       </div>
                     </div>
                     <div>
-                      <div className="delivery-text">Delivery Charges</div>
-                      <div className="delivery-cost">₹{delivery}</div>
+                      <div className="delivery-text">
+                        {reserveStatus
+                          ? "Reservation Charges"
+                          : "Delivery Charges"}
+                      </div>
+                      <div className="delivery-cost">
+                        ₹{reserveStatus ? reservationCharges : delivery}
+                      </div>
                     </div>
                     {setRound && (
                       <div>
@@ -113,7 +122,7 @@ export default function Plate() {
                     <div className="text-info">Grand Total</div>
                     <div>₹{setRound ? grandTotal + roundoff : grandTotal}</div>
                   </div>
-                  {grandTotal % 10 !== 0 && !setRound && (
+                  {grandTotal % 10 !== 0 && !setRound && !reserveStatus && (
                     <div className="round-off">
                       <div>Tip our delivery guy with</div>
                       <button
@@ -161,7 +170,7 @@ function CartItem({ item, updateCart }) {
   const { cart } = useContext(ConsumerEffect);
 
   let cartCount = cart.filter((item) => {
-    if (item.name.includes(name)) return item.qnty;
+    if (item.name?.includes(name)) return item.qnty ?? 0;
   })[0];
   cartCount = cartCount ? cartCount.qnty : 0;
 

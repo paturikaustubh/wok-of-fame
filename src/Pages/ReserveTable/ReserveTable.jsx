@@ -55,7 +55,6 @@ export default function ReserverTable() {
                     Table for how many members?
                   </label>
                   <input
-                    defaultValue={4}
                     type="number"
                     name="count"
                     id="count"
@@ -99,45 +98,41 @@ export default function ReserverTable() {
                     Pre-order now and enjoy a seamless dining experience with no
                     waiting time—just great food, right when you arrive.
                   </div>
-                  <button
-                    className="continue-button"
-                    style={{ marginTop: "1em", padding: 10, marginLeft: 0 }}
-                    disabled={
-                      tableDetails.table === "" ||
-                      tableDetails.count <= 0 ||
-                      (tableDetails.count > 15 && tableDetails.count != 69) ||
-                      tableDetails.date === ""
-                    }
-                    type="button"
-                  >
-                    <Link
-                      onClick={() => window.scrollTo({ top: 0 })}
-                      to="/wok-of-fame/menu"
-                      state={true}
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        height: "100%",
-                        width: "100%",
-                        display: "inline-block",
-                      }}
-                    >
-                      Open menu
-                    </Link>
-                  </button>
                   <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginTop: "0.8em",
-                    }}
+                    className="d-flex flex-column align-items-start mt-2"
+                    style={{ gap: "0.5em" }}
                   >
                     <button
-                      className="save-data-button"
-                      style={{
-                        padding: 10,
-                        marginLeft: 0,
-                      }}
+                      disabled={
+                        tableDetails.table === "" ||
+                        tableDetails.count <= 0 ||
+                        (tableDetails.count > 15 && tableDetails.count != 69) ||
+                        tableDetails.date === ""
+                      }
+                      // style={{ all: "unset" }}
+                      type="button"
+                      className="continue-button"
+                      style={{ padding: 0 }}
+                    >
+                      <Link
+                        onClick={() => window.scrollTo({ top: 0 })}
+                        to="/wok-of-fame/menu"
+                        state={true}
+                        style={{
+                          textDecoration: "none",
+                          color: "inherit",
+                          height: "100%",
+                          width: "100%",
+                          display: "inline-block",
+                          marginLeft: 0,
+                          paddingBlock: "0.5em",
+                          paddingInline: "1.5em",
+                        }}
+                      >
+                        Open menu
+                      </Link>
+                    </button>
+                    <button
                       disabled={
                         tableDetails.table === "" ||
                         tableDetails.count <= 0 ||
@@ -145,6 +140,8 @@ export default function ReserverTable() {
                         tableDetails.date === ""
                       }
                       type="button"
+                      className="save-data-button"
+                      style={{ padding: 0 }}
                     >
                       <Link
                         onClick={() => window.scrollTo({ top: 0 })}
@@ -160,6 +157,9 @@ export default function ReserverTable() {
                           height: "100%",
                           width: "100%",
                           display: "inline-block",
+                          marginLeft: 0,
+                          paddingBlock: "0.5em",
+                          paddingInline: "1.5em",
                         }}
                       >
                         Continue Reservation
@@ -189,10 +189,10 @@ export default function ReserverTable() {
                     </div>
                     <button
                       className="btn btn-outline-danger"
-                      onClick={() => updateCart({})}
+                      onClick={() => updateCart()}
                       type="button"
                     >
-                      Remove menu
+                      Clear menu
                     </button>
                   </div>
                 )}

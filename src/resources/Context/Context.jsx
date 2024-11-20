@@ -42,7 +42,6 @@ export class Data extends Component {
   };
 
   resetCart = (prevCart) => {
-    console.log("prevCart", prevCart);
     this.setState({
       cart: prevCart,
     });

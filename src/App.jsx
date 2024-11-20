@@ -35,7 +35,7 @@ export default function App() {
                   <Route path="/wok-of-fame/plate" element={<Plate />} />
                   <Route
                     exact
-                    path="/wok-of-fame/details"
+                    path="/wok-of-fame/checkout"
                     element={<Details />}
                   />
                   <Route

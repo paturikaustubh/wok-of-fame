@@ -117,7 +117,7 @@ export default function ReserverTable() {
                       <Link
                         onClick={() => window.scrollTo({ top: 0 })}
                         to="/wok-of-fame/menu"
-                        state={true}
+                        state={{ reserve: true, prevCart: cart }}
                         style={{
                           textDecoration: "none",
                           color: "inherit",
@@ -126,7 +126,7 @@ export default function ReserverTable() {
                           display: "inline-block",
                           marginLeft: 0,
                           paddingBlock: "0.5em",
-                          paddingInline: "1.5em",
+                          paddingInline: "0.5em",
                         }}
                       >
                         Open menu
@@ -148,7 +148,7 @@ export default function ReserverTable() {
                         to={
                           cart.length > 0
                             ? "/wok-of-fame/plate"
-                            : "/wok-of-fame/details"
+                            : "/wok-of-fame/checkout"
                         }
                         state={{ reserve: true }}
                         style={{
@@ -158,8 +158,8 @@ export default function ReserverTable() {
                           width: "100%",
                           display: "inline-block",
                           marginLeft: 0,
-                          paddingBlock: "0.5em",
-                          paddingInline: "1.5em",
+                          paddingBlock: "0.6em",
+                          paddingInline: "0.5em",
                         }}
                       >
                         Continue Reservation

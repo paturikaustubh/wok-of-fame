@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import Dialog from "../../components/Dialog/Dialog";
 import { useLocation } from "react-router-dom";
@@ -16,6 +16,8 @@ export default function Address() {
   });
 
   const reserveStatus = useLocation().state;
+
+  useLayoutEffect(() => window.scrollTo({ top: 0 }), []);
 
   return (
     <Consumer>

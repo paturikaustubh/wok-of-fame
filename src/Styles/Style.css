@@ -42,47 +42,6 @@
   font-size: 1.3em;
 }
 
-@media (max-width: 768px) {
-  #section-btn {
-    font-size: 1em;
-  }
-  .navbar-brand {
-    font-size: 1.5em !important;
-  }
-  .display-1 {
-    font-size: 4;
-  }
-  .display-2 {
-    font-size: 3.5em;
-  }
-  .display-3 {
-    font-size: 3em;
-  }
-  .display-4 {
-    font-size: 2.5em;
-  }
-  .display-5 {
-    font-size: 2em;
-  }
-  .display-6 {
-    font-size: 1.5em;
-  }
-  .card-title {
-    font-size: 1.5em;
-  }
-  .card-body > p {
-    font-size: 0.9em;
-  }
-  .menu-item-title {
-    font-size: 2em;
-    top: 70;
-  }
-  .item-name {
-    font-size: 1.2em !important;
-    font-weight: 500;
-  }
-}
-
 /* input[type="number"]::-webkit-inner-spin-button {
   display: none;
 } */
@@ -100,33 +59,6 @@
   top: 0;
   z-index: 100;
   padding-top: 0;
-}
-
-@media (min-width: 1024px) {
-  .headding {
-    width: 75%;
-  }
-
-  .menu-title {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .headding {
-    width: 100%;
-    margin-left: 0.4em;
-    margin-right: 0.4em;
-  }
-  .menu-title {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  * {
-    font-size: 100%;
-  }
 }
 
 .filter-button,
@@ -403,16 +335,6 @@ img {
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .plate-count-div {
-    font-size: 1.5em;
-  }
-
-  .plate-count {
-    font-size: 1.5em;
-  }
-}
-
 .cart-items-list {
   background-color: white;
   padding: 1rem;
@@ -449,12 +371,6 @@ img {
 .item-name {
   font-size: 1.6em;
   margin: 0;
-}
-
-@media (max-width: 768px) {
-  .cart-item {
-    flex-direction: column;
-  }
 }
 
 .cart-item-right {
@@ -494,14 +410,6 @@ img {
   scale: 1;
 }
 
-@media (min-width: 768px) {
-  .go-up {
-    font-size: 4rem;
-    bottom: 30px;
-    right: 40px;
-  }
-}
-
 .additional-costs {
   display: flex;
   flex-direction: column;
@@ -515,12 +423,6 @@ img {
 
 .additional-costs > div > div {
   font-size: 1.2em !important;
-}
-
-@media (max-width: 768px) {
-  .additional-costs > div > div {
-    font-size: 0.9em !important;
-  }
 }
 
 .round-off-cost {
@@ -624,13 +526,16 @@ img {
   max-width: 60ch;
 }
 
-@media (max-width: 768px) {
-  .address-title {
-    font-size: 2rem;
-  }
-  .thank-you-text {
-    font-size: 0.8em;
-  }
+.form-input {
+  outline: none;
+  border: 2px solid rgb(128, 128, 128);
+  border-radius: 0.35em;
+  padding: 0.8em;
+  font-size: 1.1em;
+  flex-grow: 1;
+  display: block;
+  transition-duration: 200ms;
+  width: 100%;
 }
 
 .details-form {
@@ -646,23 +551,8 @@ img {
   gap: 2rem;
 }
 
-.form-input {
-  outline: none;
-  border: 2px solid rgb(128, 128, 128);
-  border-radius: 0.35em;
-  padding: 0.8em;
-  font-size: 1.1em;
-  flex-grow: 1;
-  display: block;
-  transition-duration: 200ms;
-  width: 35%;
-}
-
-@media (max-width: 1024px) {
-  .form-input {
-    /* font-size: 0.9em; */
-    width: 100%;
-  }
+.grid-form-inputs > textarea {
+  grid-column: span 2;
 }
 
 .form-input:hover {
@@ -677,15 +567,6 @@ img {
   background-color: rgba(255, 0, 0, 0.1);
   color: var(--boot_red);
   border: 2px solid var(--boot_red);
-}
-
-@media (max-width: 768px) {
-  .grid-form-inputs {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
-  }
 }
 
 .ph-no {
@@ -705,11 +586,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-@media (max-width: 768px) {
-  .ph-no > :first-child {
-    font-size: 0.9em;
-  }
 }
 
 .ph-no > :last-child {
@@ -810,13 +686,6 @@ img {
   padding: 2em;
 }
 
-@media (max-width: 768px) {
-  .wrapper {
-    padding-block: 1em;
-    padding-inline: 0.5em;
-  }
-}
-
 .reserve-title {
   font-size: 3em;
   font-weight: 600;
@@ -824,21 +693,9 @@ img {
   line-height: 1em;
 }
 
-@media (max-width: 768px) {
-  .reserve-title {
-    font-size: 2em;
-  }
-}
-
 .reserve-subtitle {
   margin-top: 0.6em;
   max-width: 60ch;
-}
-
-@media (max-width: 768px) {
-  .reserve-subtitle {
-    font-size: 0.9em;
-  }
 }
 
 .table-details-form {
@@ -869,14 +726,6 @@ img {
   font-size: 2em;
   color: var(--boot_red);
   font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .flex-form-inputs > :nth-child(4) > :first-child {
-    font-size: 1.4em;
-    color: var(--boot_red);
-    font-weight: 500;
-  }
 }
 
 .menu-button {
@@ -976,13 +825,6 @@ select {
   text-align: center;
 }
 
-@media (min-width: 768px) {
-  .such-empty {
-    padding-inline: 0.5em;
-    font-size: 3em;
-  }
-}
-
 ::selection {
   background-color: var(--boot_red);
   color: white;
@@ -994,4 +836,139 @@ select {
   color: gray !important;
   background-color: lightgray !important;
   border-color: gray !important;
+}
+
+@media (min-width: 768px) {
+  .go-up {
+    font-size: 4rem;
+    bottom: 30px;
+    right: 40px;
+  }
+
+  .such-empty {
+    padding-inline: 0.5em;
+    font-size: 3em;
+  }
+  .flex-form-inputs > div > .form-input {
+    width: 35%;
+  }
+}
+
+@media (max-width: 768px) {
+  #section-btn {
+    font-size: 1em;
+  }
+  .navbar-brand {
+    font-size: 1.5em !important;
+  }
+  .display-1 {
+    font-size: 4;
+  }
+  .display-2 {
+    font-size: 3.5em;
+  }
+  .display-3 {
+    font-size: 3em;
+  }
+  .display-4 {
+    font-size: 2.5em;
+  }
+  .display-5 {
+    font-size: 2em;
+  }
+  .display-6 {
+    font-size: 1.5em;
+  }
+  .card-title {
+    font-size: 1.5em;
+  }
+  .card-body > p {
+    font-size: 0.9em;
+  }
+  .menu-item-title {
+    font-size: 2em;
+    top: 70;
+  }
+  .item-name {
+    font-size: 1.2em !important;
+    font-weight: 500;
+  }
+
+  .plate-count-div {
+    font-size: 1.5em;
+  }
+
+  .plate-count {
+    font-size: 1.5em;
+  }
+
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .additional-costs > div > div {
+    font-size: 0.9em !important;
+  }
+
+  .address-title {
+    font-size: 2rem;
+  }
+  .thank-you-text {
+    font-size: 0.8em;
+  }
+
+  .ph-no > :first-child {
+    font-size: 0.9em;
+  }
+
+  .wrapper {
+    padding-block: 1em;
+    padding-inline: 0.5em;
+  }
+
+  .reserve-title {
+    font-size: 2em;
+  }
+
+  .reserve-subtitle {
+    font-size: 0.9em;
+  }
+
+  .flex-form-inputs > :nth-child(4) > :first-child {
+    font-size: 1.4em;
+    color: var(--boot_red);
+    font-weight: 500;
+  }
+
+  .grid-form-inputs {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  * {
+    font-size: 100%;
+  }
+
+  .headding {
+    width: 100%;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+  }
+  .menu-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headding {
+    width: 75%;
+  }
+
+  .menu-title {
+    font-size: 3rem;
+  }
 }

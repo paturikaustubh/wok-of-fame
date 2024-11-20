@@ -12,7 +12,7 @@ export default function Plate() {
 
   return (
     <Consumer>
-      {({ cart, updateCart }) => {
+      {({ cart, updateCart, setTotalPayment }) => {
         const totalCartQnty = cart
           .map(({ qnty }) => qnty)
           .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
@@ -61,7 +61,6 @@ export default function Plate() {
                     .sort((a, b) => a.category - b.category)
                     .sort((a, b) => b.veg - a.veg)
                     .map((item, indx) => {
-                      console.log(cart);
                       return (
                         <CartItem
                           item={item}
@@ -133,28 +132,21 @@ export default function Plate() {
                     </div>
                   )}
                 </div>
-
-                <Consumer>
-                  {({ setTotalPayment }) => {
-                    return (
-                      <div className="continue">
-                        <Link
-                          to="/wok-of-fame/details"
-                          state={{ reserve: reserveStatus }}
-                          className="continue-button"
-                          onClick={() => {
-                            window.scrollTo({ top: 0 });
-                            setTotalPayment(
-                              setRound ? grandTotal + roundoff : grandTotal
-                            );
-                          }}
-                        >
-                          Continue
-                        </Link>
-                      </div>
-                    );
-                  }}
-                </Consumer>
+                <div className="continue">
+                  <Link
+                    to="/wok-of-fame/checkout"
+                    state={{ reserve: reserveStatus }}
+                    className="continue-button"
+                    onClick={() => {
+                      setTotalPayment(
+                        setRound ? grandTotal + roundoff : grandTotal
+                      );
+                    }}
+                    style={{ marginLeft: "auto" }}
+                  >
+                    Continue
+                  </Link>
+                </div>
               </div>
             )}
           </>
@@ -176,7 +168,6 @@ function CartItem({ item, updateCart }) {
 
   const [count, setCount] = useState(cartCount);
   const [initialLoad, setInitialLoad] = useState(true);
-  console.log(count);
 
   useEffect(() => {
     if (!initialLoad) {
@@ -209,7 +200,6 @@ function CartItem({ item, updateCart }) {
           objectPosition: "center",
         }}
       />
-      {/* </div> */}
       <div
         className="d-flex flex-lg-row flex-column align-items-start w-100 px-lg-4 px-2 pt-2"
         style={{ justifyContent: "space-between" }}

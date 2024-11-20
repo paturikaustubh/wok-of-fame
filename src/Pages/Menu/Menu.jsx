@@ -1,47 +1,25 @@
-import { useEffect, useState, useContext, Fragment } from "react";
+import { useEffect, useState, useContext, Fragment, useRef } from "react";
 import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import Dialog from "../../components/Dialog/Dialog";
 
 import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
-  const { menu, cart: initCart } = useContext(ConsumerEffect);
-  const reserve_state = useLocation().state ?? false;
+  const { menu } = useContext(ConsumerEffect);
+  const stateValue = useLocation()?.state;
 
   const [searchValue, setSearchValue] = useState("");
-  // const [filterArr, setFilterArr] = useState([]);
   const [showSections, setShowSections] = useState(false);
-  const [prevCart, setPrevCart] = useState([]);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    if (reserve_state) {
-      console.log("setting prev cart", initCart);
-      setPrevCart(initCart);
-    }
   }, []);
-
-  const filterButtons = ["Veg🥬", "Non-Veg🥩"];
-
-  // const handleFilterClick =
-  //   (setLoading) =>
-  //   ({ target }) => {
-  //     setLoading(true);
-  //     if (filterArr.includes(target.value)) {
-  //       filterArr.splice(filterArr.indexOf(target.value), 1);
-  //       setFilterArr((prevVal) => [...prevVal]);
-  //       setLoading(false);
-  //     } else {
-  //       setFilterArr((prevVal) => [...prevVal, target.value]);
-  //       setLoading(false);
-  //     }
-  //   };
 
   useEffect(() => {
     document.addEventListener("keydown", (e) => {
       if (e.code === "Escape") setShowSections(false);
     });
-  }, [false]);
+  }, []);
 
   return (
     <Consumer>
@@ -59,12 +37,12 @@ export default function Menu() {
                   >
                     Menu
                   </p>
-                  {reserve_state && (
+                  {stateValue && (
                     <Link
                       to="/wok-of-fame/reserve"
                       className="btn btn-danger btn-lg"
                       onClick={() => {
-                        resetCart(prevCart);
+                        resetCart(stateValue.prevCart);
                         window.scrollTo({ top: 0 });
                       }}
                     >
@@ -78,36 +56,7 @@ export default function Menu() {
                   className="form-input w-100"
                   onInput={({ target }) => setSearchValue(target.value)}
                 />
-                <div style={{ display: "flex", gap: 12, marginTop: 30 }}>
-                  {/* {filterButtons.map((element, indx) => {
-                    return (
-                      <button
-                        key={indx}
-                        onClick={handleFilterClick(setLoading)}
-                        value={element.toLowerCase().split("-").join("")}
-                        className="filter-button"
-                        style={{
-                          backgroundColor: "transparent",
-                          borderRadius: 4,
-                          borderWidth: "20px",
-                          borderColor: "black",
-                          ...(filterArr.includes(
-                            element.toLowerCase().split("-").join("")
-                          ) && {
-                            backgroundColor: "lightgray",
-                            color: "black",
-                          }),
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                        disabled
-                      >
-                        {element}
-                      </button>
-                    );
-                  })} */}
-                </div>
+                <div style={{ display: "flex", gap: 12, marginTop: 30 }}></div>
                 <hr />
                 <div className="mt-3">
                   {menu.map((element, indx) => {
@@ -180,13 +129,13 @@ export default function Menu() {
               >
                 Sections📃
               </button>
-              {reserve_state && cart.length > 0 && (
+              {stateValue && cart.length > 0 && (
                 <Link
                   onClick={() => window.scrollTo({ top: 0 })}
                   to={
                     cart.length > 0
                       ? "/wok-of-fame/plate"
-                      : "/wok-of-fame/details"
+                      : "/wok-of-fame/checkout"
                   }
                   className="rounded-full rounded btn-lg btn btn-success"
                   style={{
@@ -244,21 +193,6 @@ function MenuItems({ element, searchValue }) {
           element.name !== searchValue && { display: "none" }),
       }}
     >
-      {/* <div
-        className="blur-div"
-        style={{
-          width: "75%",
-          aspectRatio: "16/9",
-          backgroundImage: itemDetails.img
-            ? `url(Images/Menu/${itemDetails.img}-small.jpg)`
-            : "",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backdropFilter: "blur(30px)",
-          borderBottomLeftRadius: "8px",
-          borderTopLeftRadius: "8px",
-        }}
-      > */}
       <img
         loading="lazy"
         src={element.img ? `Images/Menu/${element.img}.jpg` : ""}

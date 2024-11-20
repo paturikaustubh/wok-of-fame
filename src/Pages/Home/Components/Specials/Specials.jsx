@@ -13,10 +13,16 @@ function Specials() {
       <div className="row mt-4 text-center py-4">
         <Consumer>
           {(values) => {
-            const { specials, updateCart, cart } = values;
+            const { menu, updateCart, cart } = values;
+            const special_items = menu
+              .map((section) =>
+                section.items.filter((item) => item.special === true)
+              )
+              .flat()
+              .sort((a, b) => b.veg - a.veg);
             return (
               <>
-                {specials.map((item, indx) => {
+                {special_items.map((item, indx) => {
                   return (
                     <SpecialItems
                       item={item}

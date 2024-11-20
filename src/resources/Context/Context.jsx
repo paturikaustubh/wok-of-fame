@@ -64,73 +64,6 @@ export class Data extends Component {
     setUserDetails: this.setUserDetails,
     enableEmojis: true,
     loading: false,
-    specials: [
-      {
-        name: "Veg Chowmein",
-        img: "Chowmein",
-        veg: true,
-        category: 1,
-        cost: 150,
-        rating: 3.0,
-        details:
-          "Popular Chinese item of stir fried noodles with mix vegetables soy sauce, aromatics and spices.",
-        serves: 1,
-      },
-      {
-        name: "Hot Pot",
-        img: "HotPot",
-        veg: true,
-        category: 1,
-        cost: 350,
-        rating: 3.0,
-        details:
-          "The Hot Pot is a flavorsome broth and one of the most popular dishes in China, mainly in the Szechuan and Chongqing provinces.",
-        serves: 1,
-      },
-      {
-        name: "Dumplings",
-        img: "Dumplings",
-        veg: true,
-        category: 0,
-        cost: 200,
-        rating: 3.0,
-        details:
-          "A broad className of dishes that consist of pieces of cooked dough (made from a variety of starch sources), often wrapped around a filling.",
-        serves: 1,
-      },
-      {
-        name: "Kung Pao Chicken",
-        img: "KungPaoChicken",
-        veg: false,
-        category: 1,
-        cost: 300,
-        rating: 3.0,
-        details: `Chinese-style stir-fried chicken cubes with dried chili peppers.`,
-        serves: 1,
-      },
-      {
-        name: "Ma Po Tofu",
-        img: "MaPoTofu",
-        veg: false,
-        category: 0,
-        cost: 200,
-        rating: 3.0,
-        details:
-          "Set in a spicy sauce, typically a thin, oily, and bright red suspension, based on douban, and douchi, along with minced meat.",
-        serves: 1,
-      },
-      {
-        name: "Wonton Soup",
-        img: "WontonSoup",
-        veg: false,
-        category: 0,
-        cost: 250,
-        rating: 3.0,
-        details:
-          "Standard of Chinese cuisine and made from seasoned chicken broth with filled wontons.",
-        serves: 1,
-      },
-    ],
     menu: [
       {
         title: "Starters🍲",
@@ -229,6 +162,7 @@ export class Data extends Component {
             details:
               "Standard of Chinese cuisine and made from seasoned chicken broth with filled wontons.",
             serves: 1,
+            special: true,
           },
           {
             name: "Paneer 65",
@@ -348,6 +282,7 @@ export class Data extends Component {
             details:
               "Set in a spicy sauce, typically a thin, oily, and bright red suspension, based on douban, and douchi, along with minced meat.",
             serves: 4,
+            special: true,
           },
           {
             name: "Dumplings",
@@ -359,6 +294,7 @@ export class Data extends Component {
             details:
               "A broad className of dishes that consist of pieces of cooked dough (made from a variety of starch sources), often wrapped around a filling.",
             serves: 2,
+            special: true,
           },
         ],
       },
@@ -507,6 +443,7 @@ export class Data extends Component {
             details:
               "Popular Chinese item of stir fried noodles with mix vegetables soy sauce, aromatics and spices.",
             serves: 2,
+            special: true,
           },
           {
             name: "Hot Pot",
@@ -518,6 +455,7 @@ export class Data extends Component {
             details:
               "The Hot Pot is a flavorsome broth and one of the most popular dishes in China, mainly in the Szechuan and Chongqing provinces.",
             serves: 4,
+            special: true,
           },
           {
             name: "Veg Schezwan Noodles",
@@ -588,6 +526,7 @@ export class Data extends Component {
             rating: 3.0,
             details: `Chinese-style stir-fried chicken cubes with dried chili peppers.`,
             serves: 2,
+            special: true,
           },
           {
             name: "Chicken Hong Kong Noodles",

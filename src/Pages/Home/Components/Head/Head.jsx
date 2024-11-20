@@ -26,11 +26,8 @@ function Body() {
             Wok Of Fame
           </p>
           <div className="text-light">
-            Experience the taste of pure Chinese.
-          </div>
-          <div className="text-light">
-            We provide the best quality Chinese food with great taste in whole
-            of Mumbai.
+            Indulge in the authentic flavors of China, right here in Mumbai. We
+            bring you the finest quality Chinese cuisine, crafted to perfection.
           </div>
           <div className="text-light">
             Order online or visit our{" "}

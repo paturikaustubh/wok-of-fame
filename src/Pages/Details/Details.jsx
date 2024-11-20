@@ -26,7 +26,7 @@ export default function Address() {
           <Consumer>
             {({ tableDetails }) => {
               return (
-                <div className="container address bg-light">
+                <div className="container address bg-light border">
                   <div className="address-title">
                     <span>Provide your details</span>
                     <button
@@ -204,10 +204,7 @@ export default function Address() {
                               <div>
                                 You can pay the amount of{" "}
                                 <span className="text-info">
-                                  ₹
-                                  {reserveStatus.reserve
-                                    ? totalPayment + 200
-                                    : totalPayment}
+                                  ₹{totalPayment}
                                 </span>{" "}
                                 upon arriving. For now, the table has been
                                 reserved for {tableDetails.count}{" "}

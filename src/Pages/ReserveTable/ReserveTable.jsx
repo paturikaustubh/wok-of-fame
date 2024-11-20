@@ -172,7 +172,7 @@ export default function ReserverTable() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "2rem",
+                      gap: "1rem",
                       // marginTop: "-rem",
                     }}
                   >

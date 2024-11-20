@@ -48,7 +48,7 @@ export default function Plate() {
                 </Link>
               </div>
             ) : (
-              <div className="plate container bg-light">
+              <div className="plate container bg-light border">
                 <div className="plate-count-div">
                   <div className="plate-count">{totalCartQnty}</div>
                   <div>{`Item${

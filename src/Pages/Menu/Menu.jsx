@@ -10,6 +10,8 @@ export default function Menu() {
 
   const [searchValue, setSearchValue] = useState("");
   const [showSections, setShowSections] = useState(false);
+  const [vegOnly, setVegOnly] = useState(false);
+  const [nonVegOnly, setNonVegOnly] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -27,17 +29,50 @@ export default function Menu() {
         return (
           <Fragment>
             <div className="container-fluid">
-              <div className="container border mt-5 p-lg-4 p-1 rounded bg-light">
-                <div className="align-items-center d-flex justify-content-between">
-                  <p
-                    className="display-3 col-4 text-danger"
+              <div className="container border mt-3 p-lg-4 p-1 rounded bg-light">
+                <div className="menu-header">
+                  <span
+                    className="display-3 text-danger"
                     style={{
                       fontWeight: 500,
                     }}
                   >
                     Menu
-                  </p>
-                  {stateValue && (
+                  </span>
+                  <input
+                    type="search"
+                    placeholder="Search items in Menu"
+                    className="form-input"
+                    onInput={({ target }) => setSearchValue(target.value)}
+                  />
+                  <span className="btn-group">
+                    <button
+                      id="veg-filter"
+                      className={"veg-filter" + (vegOnly ? " active" : "")}
+                      onClick={() => {
+                        const vegButton = document.getElementById("veg-filter");
+                        vegButton.classList.toggle("active");
+                        setVegOnly((prevValue) => !prevValue);
+                      }}
+                    >
+                      Veg 🥬
+                    </button>
+                    <button
+                      id="non-veg-filter"
+                      className={"non-filter" + (nonVegOnly ? " active" : "")}
+                      onClick={() => {
+                        const nonVegButton =
+                          document.getElementById("non-veg-filter");
+                        nonVegButton.classList.toggle("active");
+                        setNonVegOnly((prevValue) => !prevValue);
+                      }}
+                    >
+                      Non-Veg 🍗
+                    </button>
+                  </span>
+                </div>
+                {stateValue && (
+                  <div className="d-flex">
                     <Link
                       to="/wok-of-fame/reserve"
                       className="btn btn-danger btn-lg"
@@ -45,18 +80,12 @@ export default function Menu() {
                         resetCart(stateValue.prevCart);
                         window.scrollTo({ top: 0 });
                       }}
+                      style={{ marginLeft: "auto" }}
                     >
                       Cancel
                     </Link>
-                  )}
-                </div>
-                <input
-                  type="search"
-                  placeholder="Search items in Menu"
-                  className="form-input w-100"
-                  onInput={({ target }) => setSearchValue(target.value)}
-                />
-                <div style={{ display: "flex", gap: 12, marginTop: 30 }}></div>
+                  </div>
+                )}
                 <hr />
                 <div className="mt-3">
                   {menu.map((element, indx) => {
@@ -91,6 +120,13 @@ export default function Menu() {
                               .toLowerCase()
                               .includes(searchValue.toLowerCase())
                           )
+                          .filter(({ veg }) => {
+                            if (vegOnly && !nonVegOnly) return veg;
+                            if (!vegOnly && nonVegOnly) return !veg;
+                            if (vegOnly && nonVegOnly) return true;
+                            return true;
+                          })
+                          .sort((a, b) => a.cost - b.cost)
                           .sort((a, b) => b.veg - a.veg)
                           .map((element, index) => {
                             return (

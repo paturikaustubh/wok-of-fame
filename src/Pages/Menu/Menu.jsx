@@ -1,24 +1,16 @@
-import {
-  useEffect,
-  useState,
-  useContext,
-  Fragment,
-  useLayoutEffect,
-} from "react";
+import { useEffect, useState, useContext, Fragment } from "react";
 import { Consumer, ConsumerEffect } from "../../resources/Context/Context";
 import Dialog from "../../components/Dialog/Dialog";
 
 import { Link, useLocation } from "react-router-dom";
 
 export default function Menu() {
-  const { menu, cart } = useContext(ConsumerEffect);
+  const { menu } = useContext(ConsumerEffect);
   const reserve_state = useLocation().state ?? false;
 
-  const [menuData, setMenuData] = useState(menu);
   const [searchValue, setSearchValue] = useState("");
   // const [filterArr, setFilterArr] = useState([]);
   const [showSections, setShowSections] = useState(false);
-  const [initialLoad, setInitialLoad] = useState(false);
 
   useEffect(() => window.scrollTo({ top: 0 }), [false]);
 
@@ -111,7 +103,7 @@ export default function Menu() {
                 </div>
                 <hr />
                 <div className="mt-3">
-                  {menuData.map((element, indx) => {
+                  {menu.map((element, indx) => {
                     const { title, items } = element;
                     return (
                       <div
@@ -121,7 +113,7 @@ export default function Menu() {
                           .toLowerCase()
                           .slice(0, -2)
                           .split(" ")
-                          .join("")}
+                          .join("-")}
                       >
                         <div
                           className="py-1 text-white px-4 rounded menu-item-title"
@@ -415,7 +407,19 @@ function SectionSection({ showSection, setShowSections }) {
                 className="section-button"
                 onClick={() => {
                   setShowSections(false);
-                  element.scrollIntoView({ behavior: "smooth" });
+
+                  // Get the position of the element
+                  const elementPosition =
+                    element.getBoundingClientRect().top + window.scrollY;
+
+                  // Calculate the offset (e.g., -100px for negative padding effect)
+                  const offset = -84; // adjust this value as needed
+
+                  // Scroll to the new position with the offset
+                  window.scrollTo({
+                    top: elementPosition + offset,
+                    behavior: "smooth",
+                  });
                 }}
                 key={indx}
               >

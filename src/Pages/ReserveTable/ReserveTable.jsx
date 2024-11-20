@@ -7,10 +7,10 @@ export default function ReserverTable() {
 
   return (
     <div className="container bg-light border wrapper">
-      <div className="reserve-title">Don't wait for others to get free!</div>
+      <div className="reserve-title">Reserve Table</div>
       <div className="reserve-subtitle text-secondary">
-        Book a seat for you/your family and we will keep it available till your
-        arrival.
+        Skip the wait and savor every moment—reserve your table today for a
+        dining experience tailored just for you.
       </div>
 
       <div action="" className="table-details-form">
@@ -18,10 +18,10 @@ export default function ReserverTable() {
         <Consumer>
           {({ tableDetails, setTableDetails, cart, updateCart }) => {
             return (
-              <div className="flex-form-inputs">
+              <form className="flex-form-inputs">
                 <div>
                   <label htmlFor="table-type" className="form-label">
-                    Select a table that you prefer
+                    Select a section of your choice
                   </label>
                   <select
                     name="table"
@@ -62,25 +62,13 @@ export default function ReserverTable() {
                     placeholder="Count"
                     className="form-input"
                     value={tableDetails.count}
+                    min={1}
+                    max={15}
                     onInput={({ target }) => {
                       setTableDetails({
                         ...tableDetails,
                         [target.name]: target.value,
                       });
-                      const element = document.getElementById(target.id);
-
-                      if (
-                        (target.value > 15 || target.value <= 0) &&
-                        target.value != 69
-                      )
-                        element.classList.add("invalid");
-                      else if (
-                        target.value <= 15 ||
-                        target.value > 0 ||
-                        target.value === "" ||
-                        target.value === 69
-                      )
-                        element.classList.remove("invalid");
                     }}
                   />
                 </div>
@@ -106,10 +94,10 @@ export default function ReserverTable() {
                 </div>
 
                 <div>
-                  <div>Don't wait for your food when you arrive!</div>
+                  <div>Skip the wait and dive straight into your meal!</div>
                   <div className="text-secondary">
-                    Pre-order your food now and enjoy your meal with ZERO
-                    waiting time.
+                    Pre-order now and enjoy a seamless dining experience with no
+                    waiting time—just great food, right when you arrive.
                   </div>
                   <button
                     className="continue-button"
@@ -120,6 +108,7 @@ export default function ReserverTable() {
                       (tableDetails.count > 15 && tableDetails.count != 69) ||
                       tableDetails.date === ""
                     }
+                    type="button"
                   >
                     <Link
                       onClick={() => window.scrollTo({ top: 0 })}
@@ -155,6 +144,7 @@ export default function ReserverTable() {
                         (tableDetails.count > 15 && tableDetails.count != 69) ||
                         tableDetails.date === ""
                       }
+                      type="button"
                     >
                       <Link
                         onClick={() => window.scrollTo({ top: 0 })}
@@ -200,12 +190,13 @@ export default function ReserverTable() {
                     <button
                       className="btn btn-outline-danger"
                       onClick={() => updateCart({})}
+                      type="button"
                     >
                       Remove menu
                     </button>
                   </div>
                 )}
-              </div>
+              </form>
             );
           }}
         </Consumer>
